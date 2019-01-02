@@ -41,12 +41,12 @@ public class Conector {
 			st.setNString(1, Id);
 			ResultSet rs=st.executeQuery();
 			while(rs.next()) {
-				System.out.println("hola");
 			Compra c=new Compra();
 			c.setId(rs.getString(1));
 			c.setUser(getUser(rs.getString(2)));
 			c.setPrecio(rs.getFloat(3));
 			c.setDescripcion(rs.getString(4));
+                        c.setFecha(rs.getString(5));
 			compras.add(c);
 			}
 			return compras;
@@ -61,7 +61,6 @@ public class Conector {
 		st.setNString(1, Id);
 		ResultSet rs=st.executeQuery();
 		while(rs.next()) {
-			System.out.println("hola");
 		Pedido p=new Pedido();
 		p.setId(rs.getString(1));
 		p.setUser(getUser(rs.getString(2)));
