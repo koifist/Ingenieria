@@ -5,6 +5,10 @@
  */
 package Vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Ferni
@@ -16,6 +20,8 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        setIcon();
+        
     }
 
     /**
@@ -27,73 +33,111 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        id = new javax.swing.JTextField();
-        pass = new javax.swing.JPasswordField();
-        SignIn = new javax.swing.JButton();
-        SignUp = new javax.swing.JButton();
+        panel = new javax.swing.JPanel();
+        user = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        sign_in = new javax.swing.JButton();
+        sign_up = new javax.swing.JButton();
+        icon_panel = new javax.swing.JPanel();
+        icon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setTitle("Inicio");
+        setBackground(new java.awt.Color(0, 153, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(java.awt.Color.white);
+        setName("Inicio"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(597, 634));
         setSize(new java.awt.Dimension(600, 400));
 
-        id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idActionPerformed(evt);
-            }
-        });
+        panel.setBackground(new java.awt.Color(51, 102, 0));
+        panel.setForeground(new java.awt.Color(51, 102, 0));
+        panel.setPreferredSize(new java.awt.Dimension(600, 400));
 
-        pass.setText("jPasswordField1");
+        user.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        user.setText("User");
 
-        SignIn.setText("Sign In");
-        SignIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignInActionPerformed(evt);
-            }
-        });
+        password.setText("Password");
 
-        SignUp.setText("Sign Up");
+        sign_in.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        sign_in.setText("Sign In");
+
+        sign_up.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        sign_up.setText("Sign up");
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                        .addComponent(sign_in, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sign_up, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(user)
+                    .addComponent(password))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sign_in)
+                    .addComponent(sign_up))
+                .addContainerGap(273, Short.MAX_VALUE))
+        );
+
+        icon_panel.setBackground(new java.awt.Color(255, 255, 255));
+        icon_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        icon_panel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        icon_panel.setDoubleBuffered(false);
+
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconos/icon.png"))); // NOI18N
+        icon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout icon_panelLayout = new javax.swing.GroupLayout(icon_panel);
+        icon_panel.setLayout(icon_panelLayout);
+        icon_panelLayout.setHorizontalGroup(
+            icon_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(icon_panelLayout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(icon, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                .addContainerGap(212, Short.MAX_VALUE))
+        );
+        icon_panelLayout.setVerticalGroup(
+            icon_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(icon_panelLayout.createSequentialGroup()
+                .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 177, Short.MAX_VALUE)
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(SignIn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SignUp))
-                    .addComponent(pass)
-                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(208, Short.MAX_VALUE))
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+            .addComponent(icon_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SignIn)
-                    .addComponent(SignUp))
-                .addContainerGap(159, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(icon_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idActionPerformed
-
-    private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SignInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,11 +176,18 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Vista/iconos/icon.png")));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton SignIn;
-    private javax.swing.JButton SignUp;
-    private javax.swing.JTextField id;
-    private javax.swing.JPasswordField pass;
+    private javax.swing.JLabel icon;
+    private javax.swing.JPanel icon_panel;
+    private javax.swing.JPanel panel;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JButton sign_in;
+    private javax.swing.JButton sign_up;
+    private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }
