@@ -50,19 +50,19 @@ public class Inicio extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(597, 634));
         setSize(new java.awt.Dimension(600, 400));
 
-        panel.setBackground(new java.awt.Color(51, 102, 0));
+        panel.setBackground(new java.awt.Color(51, 153, 0));
         panel.setForeground(new java.awt.Color(51, 102, 0));
         panel.setPreferredSize(new java.awt.Dimension(600, 400));
 
-        user.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        user.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
         user.setText("User");
 
         password.setText("Password");
 
-        sign_in.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        sign_in.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
         sign_in.setText("Sign In");
 
-        sign_up.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        sign_up.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
         sign_up.setText("Sign up");
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
@@ -91,7 +91,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sign_in)
                     .addComponent(sign_up))
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
 
         icon_panel.setBackground(new java.awt.Color(255, 255, 255));

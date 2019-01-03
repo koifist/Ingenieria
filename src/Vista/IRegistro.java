@@ -18,7 +18,7 @@ public class IRegistro extends javax.swing.JFrame {
      */
     public IRegistro() {
         initComponents();
-        setIcon();
+        //setIcon();
     }
 
     /**
@@ -50,65 +50,75 @@ public class IRegistro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sign - Up");
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 400));
 
-        nombre.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        nombre.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        nombre.setText("name");
         nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreActionPerformed(evt);
             }
         });
 
-        LabelNombre.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        LabelNombre.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        LabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelNombre.setText("Name");
         LabelNombre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        apellidos.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        apellidos.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        apellidos.setText("surname");
         apellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 apellidosActionPerformed(evt);
             }
         });
 
-        LabelApellidos.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        LabelApellidos.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        LabelApellidos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelApellidos.setText("Surname");
 
-        DNI.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        DNI.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        DNI.setText("nie/nif/dni");
         DNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DNIActionPerformed(evt);
             }
         });
 
-        LabelDni.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        LabelDni.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        LabelDni.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelDni.setText("NIF");
 
-        direccion.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        direccion.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
         direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 direccionActionPerformed(evt);
             }
         });
 
-        LabelDireccion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        LabelDireccion.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        LabelDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelDireccion.setText("Address");
 
-        user.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        user.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        user.setText("user");
         user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userActionPerformed(evt);
             }
         });
 
-        LabelContraseña.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        LabelContraseña.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        LabelContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelContraseña.setText("Password");
         LabelContraseña.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        LabelUsuario.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        LabelUsuario.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        LabelUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelUsuario.setText("User");
 
-        SingUp.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        SingUp.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
         SingUp.setText("Sign Up");
 
         password.setText("Password");
@@ -124,31 +134,27 @@ public class IRegistro extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LabelContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(LabelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LabelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LabelApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelContraseña)
-                            .addComponent(LabelDni)
-                            .addComponent(LabelDireccion)
-                            .addComponent(LabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(LabelDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LabelDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(user, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                            .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(user, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                        .addComponent(nombre)
                         .addComponent(DNI, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                         .addComponent(direccion)
                         .addComponent(apellidos))
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(190, 190, 190))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(269, 269, 269)
                 .addComponent(SingUp)
-                .addGap(44, 44, 44))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,9 +183,9 @@ public class IRegistro extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelDireccion)
                     .addComponent(direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(SingUp)
-                .addGap(28, 28, 28))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         LabelNombre.getAccessibleContext().setAccessibleParent(nombre);
@@ -285,11 +291,11 @@ public class IRegistro extends javax.swing.JFrame {
             }
         });
     }
-    
+    /*
     private void setIcon(){
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Vista/iconos/icon.png")));
     }
-
+    */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DNI;
     private javax.swing.JLabel LabelApellidos;

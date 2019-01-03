@@ -12,7 +12,7 @@ package Vista;
 public class IRegistroAdmin extends javax.swing.JFrame {
 
     /**
-     * Creates new form RegistroAdmin
+     * Creates new form Empleado
      */
     public IRegistroAdmin() {
         initComponents();
@@ -27,21 +27,141 @@ public class IRegistroAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        icon_panel = new javax.swing.JPanel();
+        icon = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        label_admin = new javax.swing.JLabel();
+        text_user = new javax.swing.JTextField();
+        label_user = new javax.swing.JLabel();
+        label_pass = new javax.swing.JLabel();
+        text_pass = new javax.swing.JPasswordField();
+        button_join = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(600, 400));
+
+        icon_panel.setBackground(new java.awt.Color(255, 255, 255));
+        icon_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        icon_panel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        icon_panel.setDoubleBuffered(false);
+
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconos/icon.png"))); // NOI18N
+        icon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout icon_panelLayout = new javax.swing.GroupLayout(icon_panel);
+        icon_panel.setLayout(icon_panelLayout);
+        icon_panelLayout.setHorizontalGroup(
+            icon_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(icon_panelLayout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(icon, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                .addGap(244, 244, 244))
+        );
+        icon_panelLayout.setVerticalGroup(
+            icon_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(icon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, Short.MAX_VALUE)
+        );
+
+        jPanel1.setBackground(new java.awt.Color(51, 153, 0));
+
+        label_admin.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 18)); // NOI18N
+        label_admin.setForeground(new java.awt.Color(255, 255, 255));
+        label_admin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_admin.setText("administrador");
+        label_admin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+
+        text_user.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        text_user.setText("User");
+        text_user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_userActionPerformed(evt);
+            }
+        });
+
+        label_user.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        label_user.setText("USER");
+
+        label_pass.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        label_pass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_pass.setText("PASSWORD");
+
+        text_pass.setText("passqord");
+        text_pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_passActionPerformed(evt);
+            }
+        });
+
+        button_join.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
+        button_join.setText("JOIN");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(264, 264, 264)
+                .addComponent(button_join)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(label_user, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(text_user)
+                            .addComponent(text_pass, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
+                        .addGap(170, 170, 170))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(label_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(288, 288, 288))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(label_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label_user, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(button_join)
+                .addContainerGap(161, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(icon_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(icon_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void text_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_userActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_userActionPerformed
+
+    private void text_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_passActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,6 +190,8 @@ public class IRegistroAdmin extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -80,5 +202,14 @@ public class IRegistroAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_join;
+    private javax.swing.JLabel icon;
+    private javax.swing.JPanel icon_panel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel label_admin;
+    private javax.swing.JLabel label_pass;
+    private javax.swing.JLabel label_user;
+    private javax.swing.JPasswordField text_pass;
+    private javax.swing.JTextField text_user;
     // End of variables declaration//GEN-END:variables
 }
