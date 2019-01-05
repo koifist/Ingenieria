@@ -54,9 +54,9 @@
                                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel2" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="boton_add1" min="-2" pref="69" max="-2" attributes="0"/>
+                                          <Component id="boton_add" min="-2" pref="69" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="boton_add" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="boton_modify" min="-2" pref="95" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
@@ -72,11 +72,11 @@
                               <Component id="descripcion_producto" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                               <Component id="precio_producto" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                              <Component id="text_id1" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
+                              <Component id="id_delete" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="delete" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -86,19 +86,19 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="idL" min="-2" pref="318" max="-2" attributes="0"/>
+                          <Component id="id_label" min="-2" pref="318" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane1" min="-2" pref="581" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="listap" min="-2" pref="303" max="-2" attributes="0"/>
+                                  <Component id="lista_pedidos" min="-2" pref="303" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="idpass" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="13" max="32767" attributes="0"/>
+                          <EmptySpace pref="20" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -114,10 +114,10 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="idL" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="id_label" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="listap" max="32767" attributes="0"/>
+                              <Component id="lista_pedidos" max="32767" attributes="0"/>
                               <Component id="idpass" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -142,15 +142,15 @@
                           <Component id="precio_producto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="boton_add" min="-2" max="-2" attributes="0"/>
-                              <Component id="boton_add1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="boton_modify" min="-2" max="-2" attributes="0"/>
+                              <Component id="boton_add" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="text_id1" min="-2" max="-2" attributes="0"/>
+                          <Component id="id_delete" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="delete" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -167,14 +167,14 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="listaproductos">
+            <Component class="javax.swing.JTable" name="lista_productos">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Copperplate Gothic Bold" size="12" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="0">
-                    <Column editable="false" title="IdProdcut" type="java.lang.String"/>
+                    <Column editable="false" title="Id Productos" type="java.lang.String"/>
                     <Column editable="false" title="Name" type="java.lang.String"/>
                     <Column editable="false" title="Price" type="java.lang.Float"/>
                     <Column editable="false" title="Acepted" type="java.lang.Boolean"/>
@@ -211,7 +211,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="boton_add">
+        <Component class="javax.swing.JButton" name="boton_modify">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="14" style="1"/>
@@ -219,10 +219,10 @@
             <Property name="text" type="java.lang.String" value="Modify"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_addActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_modifyActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="delete">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="14" style="1"/>
@@ -302,7 +302,7 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="text_id1">
+        <Component class="javax.swing.JTextField" name="id_delete">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="12" style="1"/>
@@ -317,7 +317,7 @@
             <Property name="text" type="java.lang.String" value="Id Product to delete"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="boton_add1">
+        <Component class="javax.swing.JButton" name="boton_add">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="14" style="1"/>
@@ -325,10 +325,10 @@
             <Property name="text" type="java.lang.String" value="ADD"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_add1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_addActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="listap">
+        <Component class="javax.swing.JButton" name="lista_pedidos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="24" style="1"/>
@@ -336,7 +336,7 @@
             <Property name="text" type="java.lang.String" value="Ver Lista de pedidos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="idL">
+        <Component class="javax.swing.JLabel" name="id_label">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="24" style="1"/>

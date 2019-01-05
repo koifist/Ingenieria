@@ -30,14 +30,14 @@ public class ICambio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         icon = new javax.swing.JLabel();
         user = new javax.swing.JTextField();
-        pass = new javax.swing.JPasswordField();
+        pass_actual = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        pass1 = new javax.swing.JPasswordField();
-        pass2 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        pass_nueva_confirm = new javax.swing.JPasswordField();
+        pass_nueva = new javax.swing.JPasswordField();
+        cambiar_datos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,12 +49,13 @@ public class ICambio extends javax.swing.JFrame {
 
         user.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         user.setText("User");
+        user.setToolTipText("");
 
-        pass.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        pass.setText("Password");
-        pass.addActionListener(new java.awt.event.ActionListener() {
+        pass_actual.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        pass_actual.setText("Password");
+        pass_actual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passActionPerformed(evt);
+                pass_actualActionPerformed(evt);
             }
         });
 
@@ -70,24 +71,24 @@ public class ICambio extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel4.setText("Nueva Contraseña");
 
-        pass1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        pass1.setText("Password");
-        pass1.addActionListener(new java.awt.event.ActionListener() {
+        pass_nueva_confirm.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        pass_nueva_confirm.setText("Password");
+        pass_nueva_confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pass1ActionPerformed(evt);
+                pass_nueva_confirmActionPerformed(evt);
             }
         });
 
-        pass2.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        pass2.setText("Password");
-        pass2.addActionListener(new java.awt.event.ActionListener() {
+        pass_nueva.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        pass_nueva.setText("Password");
+        pass_nueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pass2ActionPerformed(evt);
+                pass_nuevaActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jButton1.setText("Cambiar Datos");
+        cambiar_datos.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        cambiar_datos.setText("Cambiar Datos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,14 +114,14 @@ public class ICambio extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pass1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pass_nueva_confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pass_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pass_actual, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cambiar_datos, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(96, 96, 96))
         );
         jPanel1Layout.setVerticalGroup(
@@ -136,18 +137,18 @@ public class ICambio extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pass_actual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pass_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(pass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pass_nueva_confirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cambiar_datos, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 56, Short.MAX_VALUE))
         );
 
@@ -165,17 +166,17 @@ public class ICambio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+    private void pass_actualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass_actualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passActionPerformed
+    }//GEN-LAST:event_pass_actualActionPerformed
 
-    private void pass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass1ActionPerformed
+    private void pass_nueva_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass_nueva_confirmActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pass1ActionPerformed
+    }//GEN-LAST:event_pass_nueva_confirmActionPerformed
 
-    private void pass2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass2ActionPerformed
+    private void pass_nuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass_nuevaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pass2ActionPerformed
+    }//GEN-LAST:event_pass_nuevaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,16 +215,16 @@ public class ICambio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cambiar_datos;
     private javax.swing.JLabel icon;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField pass;
-    private javax.swing.JPasswordField pass1;
-    private javax.swing.JPasswordField pass2;
+    private javax.swing.JPasswordField pass_actual;
+    private javax.swing.JPasswordField pass_nueva;
+    private javax.swing.JPasswordField pass_nueva_confirm;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }

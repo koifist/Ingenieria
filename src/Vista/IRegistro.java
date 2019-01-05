@@ -34,7 +34,7 @@ public class IRegistro extends javax.swing.JFrame {
         nombre = new javax.swing.JTextField();
         LabelNombre = new javax.swing.JLabel();
         DNI = new javax.swing.JTextField();
-        DNIL = new javax.swing.JLabel();
+        DNI_label = new javax.swing.JLabel();
         direccion = new javax.swing.JTextField();
         LabelDireccion = new javax.swing.JLabel();
         user = new javax.swing.JTextField();
@@ -71,9 +71,9 @@ public class IRegistro extends javax.swing.JFrame {
             }
         });
 
-        DNIL.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        DNIL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DNIL.setText("DNI");
+        DNI_label.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        DNI_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DNI_label.setText("DNI");
 
         direccion.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         direccion.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +126,7 @@ public class IRegistro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(LabelDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DNIL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DNI_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LabelNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LabelUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LabelContraseña, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
@@ -163,7 +163,7 @@ public class IRegistro extends javax.swing.JFrame {
                             .addComponent(LabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DNIL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DNI_label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(DNI, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -253,7 +253,7 @@ public class IRegistro extends javax.swing.JFrame {
     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DNI;
-    private javax.swing.JLabel DNIL;
+    private javax.swing.JLabel DNI_label;
     private javax.swing.JLabel LabelContraseña;
     private javax.swing.JLabel LabelDireccion;
     private javax.swing.JLabel LabelNombre;

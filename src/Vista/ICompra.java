@@ -29,14 +29,14 @@ public class ICompra extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         icon = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        id_label = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        producto_comprar = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        carro = new javax.swing.JTable();
+        confirmar_compra = new javax.swing.JButton();
+        case_productos = new javax.swing.JComboBox<>();
+        numero_productos = new javax.swing.JSpinner();
+        añadir_carro = new javax.swing.JButton();
+        borrar_compra = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         precio_final = new javax.swing.JLabel();
 
@@ -48,10 +48,11 @@ public class ICompra extends javax.swing.JFrame {
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconos/icon.png"))); // NOI18N
         icon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jLabel6.setText("ID");
+        id_label.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        id_label.setText("ID");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        carro.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        carro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -74,25 +75,25 @@ public class ICompra extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(carro);
 
-        jButton2.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
-        jButton2.setText("Confirmar compra");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        confirmar_compra.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        confirmar_compra.setText("Confirmar compra");
+        confirmar_compra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                confirmar_compraActionPerformed(evt);
             }
         });
 
-        producto_comprar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        case_productos.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
 
-        jSpinner1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        numero_productos.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        jButton1.setText("Añadir al carro");
+        añadir_carro.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        añadir_carro.setText("Añadir al carro");
 
-        jButton3.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
-        jButton3.setText("Borrar compra");
+        borrar_compra.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        borrar_compra.setText("Borrar compra");
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 153));
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
@@ -100,6 +101,7 @@ public class ICompra extends javax.swing.JFrame {
 
         precio_final.setBackground(new java.awt.Color(255, 255, 255));
         precio_final.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        precio_final.setText("1234");
         precio_final.setToolTipText("");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -114,20 +116,20 @@ public class ICompra extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(confirmar_compra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(borrar_compra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(producto_comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(case_productos, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(38, 38, 38)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(numero_productos, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(añadir_carro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -140,7 +142,7 @@ public class ICompra extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
@@ -149,16 +151,16 @@ public class ICompra extends javax.swing.JFrame {
                     .addComponent(precio_final, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(producto_comprar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(case_productos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numero_productos)
+                    .addComponent(añadir_carro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(88, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmar_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(borrar_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -178,9 +180,9 @@ public class ICompra extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void confirmar_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmar_compraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_confirmar_compraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,17 +221,17 @@ public class ICompra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton añadir_carro;
+    private javax.swing.JButton borrar_compra;
+    private javax.swing.JTable carro;
+    private javax.swing.JComboBox<String> case_productos;
+    private javax.swing.JButton confirmar_compra;
     private javax.swing.JLabel icon;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel id_label;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JSpinner numero_productos;
     private javax.swing.JLabel precio_final;
-    private javax.swing.JComboBox<String> producto_comprar;
     // End of variables declaration//GEN-END:variables
 }

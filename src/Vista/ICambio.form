@@ -70,16 +70,16 @@
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="pass1" min="-2" pref="295" max="-2" attributes="0"/>
-                      <Component id="pass2" alignment="0" min="-2" pref="295" max="-2" attributes="0"/>
+                      <Component id="pass_nueva_confirm" min="-2" pref="295" max="-2" attributes="0"/>
+                      <Component id="pass_nueva" alignment="0" min="-2" pref="295" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pass" min="-2" pref="295" max="-2" attributes="0"/>
+                              <Component id="pass_actual" min="-2" pref="295" max="-2" attributes="0"/>
                               <Component id="user" min="-2" pref="295" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jButton1" min="-2" pref="255" max="-2" attributes="0"/>
+                      <Component id="cambiar_datos" min="-2" pref="255" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
               </Group>
@@ -100,12 +100,12 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pass" min="-2" max="-2" attributes="0"/>
+                              <Component id="pass_actual" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pass2" min="-2" max="-2" attributes="0"/>
+                              <Component id="pass_nueva" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -113,10 +113,10 @@
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pass1" min="-2" max="-2" attributes="0"/>
+                      <Component id="pass_nueva_confirm" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="61" max="-2" attributes="0"/>
+                  <Component id="cambiar_datos" min="-2" pref="61" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="56" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -138,9 +138,10 @@
               <Font name="Arial Black" size="24" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="User"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="pass">
+        <Component class="javax.swing.JPasswordField" name="pass_actual">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="24" style="0"/>
@@ -148,7 +149,7 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pass_actualActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -183,7 +184,7 @@
             <Property name="text" type="java.lang.String" value="Nueva Contrase&#xf1;a"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="pass1">
+        <Component class="javax.swing.JPasswordField" name="pass_nueva_confirm">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="24" style="0"/>
@@ -191,10 +192,10 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pass1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pass_nueva_confirmActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="pass2">
+        <Component class="javax.swing.JPasswordField" name="pass_nueva">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="24" style="0"/>
@@ -202,10 +203,10 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pass2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pass_nuevaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="cambiar_datos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="24" style="1"/>

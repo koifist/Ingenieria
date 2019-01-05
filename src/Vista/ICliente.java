@@ -34,7 +34,7 @@ public class ICliente extends javax.swing.JFrame {
         idshow = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        lista_compras = new javax.swing.JTable();
 
         jMenu1.setText("jMenu1");
 
@@ -62,9 +62,9 @@ public class ICliente extends javax.swing.JFrame {
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconos/icon.png"))); // NOI18N
         icon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        lista_compras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lista_compras.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        lista_compras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -73,7 +73,7 @@ public class ICliente extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -87,14 +87,14 @@ public class ICliente extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setHeaderValue("Id Compra");
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setHeaderValue("Fecha");
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("Precio");
+        jScrollPane1.setViewportView(lista_compras);
+        if (lista_compras.getColumnModel().getColumnCount() > 0) {
+            lista_compras.getColumnModel().getColumn(0).setResizable(false);
+            lista_compras.getColumnModel().getColumn(0).setHeaderValue("Id Compra");
+            lista_compras.getColumnModel().getColumn(1).setResizable(false);
+            lista_compras.getColumnModel().getColumn(1).setHeaderValue("Fecha");
+            lista_compras.getColumnModel().getColumn(2).setResizable(false);
+            lista_compras.getColumnModel().getColumn(2).setHeaderValue("Precio");
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -188,6 +188,6 @@ public class ICliente extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable lista_compras;
     // End of variables declaration//GEN-END:variables
 }

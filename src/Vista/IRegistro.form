@@ -55,7 +55,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="LabelDireccion" max="32767" attributes="0"/>
-                      <Component id="DNIL" alignment="1" max="32767" attributes="0"/>
+                      <Component id="DNI_label" alignment="1" max="32767" attributes="0"/>
                       <Component id="LabelNombre" alignment="1" max="32767" attributes="0"/>
                       <Component id="LabelUsuario" alignment="1" max="32767" attributes="0"/>
                       <Component id="LabelContraseña" alignment="1" pref="125" max="32767" attributes="0"/>
@@ -100,7 +100,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="DNIL" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="DNI_label" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="DNI" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -155,7 +155,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DNIActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="DNIL">
+        <Component class="javax.swing.JLabel" name="DNI_label">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="18" style="1"/>
