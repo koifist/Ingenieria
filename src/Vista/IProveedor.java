@@ -51,6 +51,10 @@ public class IProveedor extends javax.swing.JFrame {
         idpass = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 500));
+        setMinimumSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setSize(new java.awt.Dimension(800, 500));
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
 

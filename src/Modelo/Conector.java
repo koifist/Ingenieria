@@ -8,8 +8,7 @@ public class Conector {
 	private static String usuario = "insosuper";
 	private static String pass = "inso1234";
 	
-		
-		
+			
 	public Usuario getUser(String Id) throws SQLException{
 
 		Usuario usr = new Usuario();
@@ -29,6 +28,7 @@ public class Conector {
 			usr.setRoll(rs.getInt(7));
 			usr.setDireccion(rs.getString(8));
 			}
+                        conn.close();
 			return usr;
 		}
 	public ArrayList<Compra> getCompras(String Id) throws SQLException{
@@ -49,6 +49,7 @@ public class Conector {
                         c.setFecha(rs.getString(5));
 			compras.add(c);
 			}
+                        conn.close();
 			return compras;
 		}
 	public ArrayList<Pedido> getPedidos(String Id) throws SQLException{
@@ -68,6 +69,7 @@ public class Conector {
 		p.setDescripcion(rs.getString(4));
 		pedidos.add(p);
 		}
+                conn.close();
 		return pedidos;
 	}
 	public Producto getProducto(String Id) throws SQLException{
@@ -87,6 +89,7 @@ public class Conector {
 			p.setPreciop(rs.getFloat(5));
 
 			}
+                        conn.close();
 			return p;
 		}
 	

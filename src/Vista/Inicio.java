@@ -39,15 +39,18 @@ public class Inicio extends javax.swing.JFrame {
         sign_in = new javax.swing.JButton();
         sign_up = new javax.swing.JButton();
         icon = new javax.swing.JLabel();
+        error = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inicio");
+        setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 153, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(java.awt.Color.white);
         setName("Inicio"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(597, 634));
-        setSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 500));
 
         panel.setBackground(new java.awt.Color(204, 255, 255));
         panel.setForeground(new java.awt.Color(0, 0, 255));
@@ -68,6 +71,9 @@ public class Inicio extends javax.swing.JFrame {
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconos/icon.png"))); // NOI18N
         icon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        error.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        error.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
@@ -81,7 +87,8 @@ public class Inicio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                         .addComponent(sign_up, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(user)
-                    .addComponent(pass))
+                    .addComponent(pass)
+                    .addComponent(error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 200, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
@@ -90,7 +97,9 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
+                        .addGap(94, 94, 94)
+                        .addComponent(error, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
                         .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,11 +169,12 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel error;
     private javax.swing.JLabel icon;
     private javax.swing.JPanel panel;
-    private javax.swing.JPasswordField pass;
-    private javax.swing.JButton sign_in;
-    private javax.swing.JButton sign_up;
-    private javax.swing.JTextField user;
+    public javax.swing.JPasswordField pass;
+    public javax.swing.JButton sign_in;
+    public javax.swing.JButton sign_up;
+    public javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }

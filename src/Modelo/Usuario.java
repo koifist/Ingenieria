@@ -1,6 +1,6 @@
 package Modelo;
 public class Usuario {
-private String id;
+public String id;
 private String pass;
 private int roll;
 private String nombre;
