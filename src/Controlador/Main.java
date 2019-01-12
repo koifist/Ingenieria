@@ -16,6 +16,6 @@ public class Main {
     public static void main(String[] args){
         Inicio In= new Inicio();
         Conector Cn= new Conector();
-        Controlador control=new Controlador(In,Cn);
+        ControladorInicio control=new ControladorInicio(In,Cn);
     }
 }

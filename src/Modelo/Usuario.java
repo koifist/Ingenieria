@@ -1,13 +1,13 @@
 package Modelo;
 public class Usuario {
 public String id;
-private String pass;
+public String pass;
 private int roll;
-private String nombre;
+public String nombre;
 private String apellido1;
 private String apellido2;
-private String dni;
-private String direccion;
+public String dni;
+public String direccion;
 public String getId() {
 	return id;
 }

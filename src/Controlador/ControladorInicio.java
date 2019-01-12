@@ -9,10 +9,10 @@ import java.awt.event.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Controlador implements ActionListener{
+public class ControladorInicio implements ActionListener{
     private Inicio Inicio;
     private Conector Cn;
-	public Controlador(Inicio in, Conector Cn){
+	public ControladorInicio(Inicio in, Conector Cn){
             this.Inicio= in;
             this.Cn=Cn;
             this.Inicio.sign_in.addActionListener(this);
