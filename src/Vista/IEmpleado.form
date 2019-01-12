@@ -3,9 +3,6 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[800, 500]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[800, 500]"/>
     </Property>
@@ -58,7 +55,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="idpass" alignment="0" pref="294" max="32767" attributes="0"/>
+                      <Component id="idpass" alignment="0" max="32767" attributes="0"/>
                       <Component id="ver_pedidos" max="32767" attributes="0"/>
                       <Component id="confirmar_producto" max="32767" attributes="0"/>
                   </Group>
@@ -153,7 +150,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Confirmar producto"/>
+            <Property name="text" type="java.lang.String" value="Confirmar recep pedido"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmar_productoActionPerformed"/>

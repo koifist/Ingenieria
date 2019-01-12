@@ -94,7 +94,6 @@ public class Conector {
 		}
 
     public void setUser(Usuario user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 	
 	}

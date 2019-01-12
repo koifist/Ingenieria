@@ -1,10 +1,19 @@
 package Modelo;
 
 public class Pedido {
-	private String id;
-	private Usuario user;
-	private float precio;
-	private String descripcion;
+	public String id;
+	public Usuario user;
+	public float precio;
+	public String descripcion;
+        public boolean recepcion;
+        
+        
+        public boolean getRecepcion() {
+		return recepcion;
+	}
+	public void setId(boolean recepcion) {
+		this.recepcion = recepcion;
+	}
 	public String getId() {
 		return id;
 	}
