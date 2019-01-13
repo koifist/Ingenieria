@@ -23,10 +23,10 @@ public class ControladorInicio implements ActionListener{
 
  
     
+    @Override
     public void actionPerformed(ActionEvent e){
         Object fuente = e.getSource();
         if(fuente==Inicio.sign_in){
-   
             try {
                 Usuario user=Cn.getUser(Inicio.user.getText()); //To change body of generated methods, choose Tools | Templates.
                 if(user.getId()==null){
@@ -34,10 +34,10 @@ public class ControladorInicio implements ActionListener{
                 }else{
                     if(user.getPass().equals(Inicio.pass.getText())){
                         if(user.getRoll()==0){
-                         Inicio.setVisible(false);
-                         IAdministrador admin=new IAdministrador();
-                         ControladorAdmin control=new ControladorAdmin(admin,Cn);
-               
+                            Inicio.setVisible(false);
+                            IAdministrador admin=new IAdministrador();
+                            ControladorAdmin control=new ControladorAdmin(admin,Cn);
+                            
                         }
                         if(user.getRoll()==1){
                             Inicio.setVisible(false);
@@ -59,8 +59,9 @@ public class ControladorInicio implements ActionListener{
                     }
                 }
             } catch (SQLException ex) {
-                Inicio.error.setText("Error al introducir los datos");
+                Logger.getLogger(ControladorInicio.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
         }
         if(fuente==Inicio.sign_up){
            IRegistro reg = new IRegistro();

@@ -22,11 +22,9 @@ public class Conector {
 			usr.setId(rs.getString(1));
 			usr.setPass(rs.getString(2));
 			usr.setNombre(rs.getString(3));
-			usr.setApellido1(rs.getString(4));
-			usr.setApellido2(rs.getString(5));
-			usr.setDni(rs.getString(6));
-			usr.setRoll(rs.getInt(7));
-			usr.setDireccion(rs.getString(8));
+			usr.setDni(rs.getString(4));
+			usr.setRoll(rs.getInt(5));
+			usr.setDireccion(rs.getString(6));
 			}
                         conn.close();
 			return usr;
