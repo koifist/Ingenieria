@@ -5,14 +5,21 @@ public class Pedido {
 	public Usuario user;
 	public float precio;
 	public String descripcion;
-        public boolean recepcion;
-        
-        
-        public boolean getRecepcion() {
-		return recepcion;
+        public String fecha;
+        public int estado;
+    
+        public int getEstado() {
+            return estado;
+        }
+
+        public void setEstado(int estado) {
+            this.estado = estado;
+        }
+        public String getFecha() {
+		return fecha;
 	}
-	public void setId(boolean recepcion) {
-		this.recepcion = recepcion;
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 	public String getId() {
 		return id;

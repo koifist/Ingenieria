@@ -2,13 +2,22 @@ package Modelo;
 
 public class Producto {
 
-	private String id;
-	private String nombre;
-	private String descripcion;
-	private float precioc;
-	private float preciop;
-	private Usuario user;
-	private int cantidad;
+	public String id;
+	public String nombre;
+	public String descripcion;
+	public float precioc;
+	public float preciop;
+	public Usuario user;
+	public int cantidad;
+        public int estado;
+    
+        public int getEstado() {
+            return estado;
+        }
+
+        public void setEstado(int estado) {
+            this.estado = estado;
+        }
 	public String getId() {
 		return id;
 	}

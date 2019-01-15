@@ -22,10 +22,11 @@ public class Conector {
 			usr.setId(rs.getString(1));
 			usr.setPass(rs.getString(2));
 			usr.setNombre(rs.getString(3));
-			usr.setDni(rs.getString(4));
+			usr.setDNI(rs.getString(4));
 			usr.setRoll(rs.getInt(5));
 			usr.setDireccion(rs.getString(6));
 			}
+                        st.close();
                         conn.close();
 			return usr;
 		}
@@ -44,9 +45,10 @@ public class Conector {
 			c.setUser(getUser(rs.getString(2)));
 			c.setPrecio(rs.getFloat(3));
 			c.setDescripcion(rs.getString(4));
-                        c.setFecha(rs.getString(5));
+                        c.setFecha(rs.getString(5).substring(0, 10));
 			compras.add(c);
 			}
+                        st.close();
                         conn.close();
 			return compras;
 		}
@@ -65,8 +67,10 @@ public class Conector {
 		p.setUser(getUser(rs.getString(2)));
 		p.setPrecio(rs.getFloat(3));
 		p.setDescripcion(rs.getString(4));
+                p.setFecha(rs.getString(5));
 		pedidos.add(p);
 		}
+                st.close();
                 conn.close();
 		return pedidos;
 	}
@@ -87,13 +91,41 @@ public class Conector {
 			p.setPreciop(rs.getFloat(5));
 
 			}
+                        st.close();
                         conn.close();
 			return p;
 		}
 
-    public void setUser(Usuario user) {
+    public void setUser(Usuario user) throws SQLException{
+    
+                        //1. Crear conexion
+			Connection conn=DriverManager.getConnection(url,usuario,pass);
+			//2. Crear objeto statement
+			PreparedStatement st = conn.prepareStatement("INSERT INTO "
+                        + "usuarios (id, pass, nombre, dni, roll, direccion) VALUES (?, ?, ?, ?, ?, ?)");
+                        st.setNString(1, user.getId());
+                        st.setNString(2, user.getPass());
+                        st.setNString(3, user.getNombre());
+                        st.setNString(4, user.getDNI());
+                        st.setInt(5, user.getRoll());
+                        st.setNString(6, user.getDireccion());
+                        st.executeUpdate();
+                        st.close();
+                        conn.close();
     }
-	
-	}
+     public void updateUser(Usuario user) throws SQLException{
+    
+                //1. Crear conexion
+		Connection conn=DriverManager.getConnection(url,usuario,pass);
+		//2. Crear objeto statement
+		PreparedStatement st = conn.prepareStatement("UPDATE usuarios"+
+                " SET pass = ? WHERE id = ?");
+                st.setNString(1, user.getPass());
+                st.setNString(2, user.getId());
+                st.executeUpdate();
+                st.close();
+                conn.close();
+    }  
+}
 
 

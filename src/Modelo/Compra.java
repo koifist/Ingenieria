@@ -2,12 +2,12 @@ package Modelo;
 
 public class Compra {
 
-    private String id;
-    private Usuario user;
-    private float precio;
-    private String descripcion;
-    private String fecha;
-
+    public String id;
+    public Usuario user;
+    public float precio;
+    public String descripcion;
+    public String fecha;
+    
     public String getFecha() {
         return fecha;
     }

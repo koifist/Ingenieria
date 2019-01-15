@@ -73,29 +73,38 @@ private Conector Cn;
            reg.address_error.setVisible(true);
        }
        if(reg.error.getText().equals("")){
+         
             try {
                 Usuario user=Cn.getUser(reg.user.getText());
                 if(user.id == null){
                     if(reg.rpass.getText().equals(reg.pass.getText())){
-                        user.id=reg.user.getText();
-                        user.pass=reg.pass.getText();
-                        user.nombre=reg.name.getText();
-                        user.dni=reg.DNI.getText();
-                        user.direccion=reg.address.getText();
-                        Cn.setUser(user);
+                        if(reg.DNI.getText().length()==9){
+                            user.setId(reg.user.getText());
+                            user.setPass(reg.pass.getText());
+                            user.setNombre(reg.name.getText());
+                            user.setDNI(reg.DNI.getText());
+                            user.setRoll(this.roll);
+                            user.setDireccion(reg.address.getText());
+                            Cn.setUser(user);
+                            reg.dispose();
+                        }else{
+                            reg.error.setText("DNI incorrecto");
+                            reg.DNI_error.setVisible(true);
+                        }
                     }else{
-                    reg.error.setText("La contraseña no coincide.");
-                    reg.pass_error.setVisible(true);
-                    reg.rpass_error.setVisible(true);
+                        reg.error.setText("La contraseña no coincide.");
+                        reg.pass_error.setVisible(true);
+                        reg.rpass_error.setVisible(true);
                     }
                 }else{
-                reg.error.setText("El usuario ya existe.");
-                reg.user_error.setVisible(true);
+                    reg.error.setText("El usuario ya existe.");
+                    reg.user_error.setVisible(true);
                 }
             } catch (SQLException ex) {
-                reg.error.setText("Error al introducir los campos.");
+                Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
             }
+            } 
        }
     }
     
-}
+
