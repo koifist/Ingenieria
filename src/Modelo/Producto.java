@@ -5,9 +5,9 @@ public class Producto {
 	public String id;
 	public String nombre;
 	public String descripcion;
+        public Usuario user;
 	public float precioc;
 	public float preciop;
-	public Usuario user;
 	public int cantidad;
         public int estado;
     

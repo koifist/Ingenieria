@@ -44,8 +44,8 @@ public class Conector {
 			c.setId(rs.getString(1));
 			c.setUser(getUser(rs.getString(2)));
 			c.setPrecio(rs.getFloat(3));
-			c.setDescripcion(rs.getString(4));
-                        c.setFecha(rs.getString(5).substring(0, 10));
+			c.setFecha(rs.getString(4).substring(0, 10));
+                        c.setDescripcion(rs.getString(5));
 			compras.add(c);
 			}
                         st.close();
@@ -87,8 +87,9 @@ public class Conector {
 			p.setId(rs.getString(1));
 			p.setNombre(rs.getString(2));
 			p.setDescripcion(rs.getString(3));
-			p.setPrecioc(rs.getFloat(4));
-			p.setPreciop(rs.getFloat(5));
+                        p.setUser(getUser(rs.getString(4)));
+			p.setPrecioc(rs.getFloat(5));
+			p.setPreciop(rs.getFloat(6));
 
 			}
                         st.close();
