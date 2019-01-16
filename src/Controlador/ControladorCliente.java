@@ -10,12 +10,11 @@ import Vista.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Fernando
- */
+
 public class ControladorCliente implements ActionListener{
     private ICliente cli;
     private Conector Cn;
@@ -34,7 +33,7 @@ public class ControladorCliente implements ActionListener{
             this.cli.idpass.addActionListener(this);
             this.cli.realizarCompra.addActionListener(this);
         }
-    private void iniciarCompras() throws SQLException{
+        public void iniciarCompras() throws SQLException{
         compras = new ArrayList<Compra>();
         compras=Cn.getCompras(user.getId());
         DefaultTableModel model = (DefaultTableModel) cli.lista_compras.getModel();
@@ -44,16 +43,29 @@ public class ControladorCliente implements ActionListener{
         }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e){
         Object fuente= e.getSource();
         if(fuente==cli.verCompra){
+            try {
+            compras=Cn.getCompras(user.getId());
+            } catch (SQLException ex) {
+            Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
             cli.compraDescripcion.setText(compras.get(compras.size()-cli.lista_compras.getSelectedRow()-1).getDescripcion());
             cli.idCompra.setText(compras.get(compras.size()-cli.lista_compras.getSelectedRow()-1).getId());
-        }if(fuente==cli.idpass){
+        }
+        if(fuente==cli.idpass){
             ICambio cambio=new ICambio();
             ControladorCambio control= new ControladorCambio(user,cambio,Cn);
         }
-        
+        if(fuente==cli.realizarCompra){
+            ICompra com=new ICompra();
+            try {
+                ControladorCompra control=new ControladorCompra(user,Cn,com,cli);
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
 }

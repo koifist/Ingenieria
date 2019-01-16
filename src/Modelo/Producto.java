@@ -8,7 +8,7 @@ public class Producto {
         public Usuario user;
 	public float precioc;
 	public float preciop;
-	public int cantidad;
+	public int cantidad=0;
         public int estado;
     
         public int getEstado() {
@@ -36,14 +36,12 @@ public class Producto {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public float getPrecioc() {
-		return precioc;
+	public float getPrecio(int roll) {
+            if(roll==3)return precioc;
+            else return preciop;
 	}
 	public void setPrecioc(float precioc) {
 		this.precioc = precioc;
-	}
-	public float getPreciop() {
-		return preciop;
 	}
 	public void setPreciop(float preciop) {
 		this.preciop = preciop;

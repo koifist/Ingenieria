@@ -2,10 +2,10 @@ package Controlador;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import Modelo.*;
 import Vista.*;
 import java.awt.event.*;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +17,8 @@ public class ControladorInicio implements ActionListener{
             this.Cn=Cn;
             this.Inicio.sign_in.addActionListener(this);
             this.Inicio.sign_up.addActionListener(this);
+            this.Inicio.pass.addActionListener(this);
+            this.Inicio.user.addActionListener(this);
             Inicio.setLocationRelativeTo(null);
             Inicio.setVisible(true);
         }
@@ -26,7 +28,7 @@ public class ControladorInicio implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         Object fuente = e.getSource();
-        if(fuente==Inicio.sign_in){
+        if(fuente==Inicio.sign_in || fuente==Inicio.pass || fuente==Inicio.user){
             try {
                 Usuario user=Cn.getUser(Inicio.user.getText()); //To change body of generated methods, choose Tools | Templates.
                 if(user.getId()==null){
