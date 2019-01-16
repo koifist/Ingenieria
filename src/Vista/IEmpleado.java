@@ -34,9 +34,9 @@ public class IEmpleado extends javax.swing.JFrame {
         confirmar_producto = new javax.swing.JButton();
         idpass = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        lista_productos = new javax.swing.JList<>();
+        lista_productos = new javax.swing.JList<String>();
         ver_pedidos = new javax.swing.JButton();
-        proveedor = new javax.swing.JComboBox<>();
+        proveedor = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(908, 600));
@@ -74,10 +74,10 @@ public class IEmpleado extends javax.swing.JFrame {
         idpass.setText("Cambiar Contraseña");
 
         lista_productos.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
-        lista_productos.setModel(new javax.swing.AbstractListModel<String>() {
+        lista_productos.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "pastas", "galletas", "bizcochos" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         lista_productos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(lista_productos);
@@ -86,7 +86,7 @@ public class IEmpleado extends javax.swing.JFrame {
         ver_pedidos.setText("Ver pedidos");
 
         proveedor.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        proveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        proveedor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -133,9 +133,9 @@ public class IEmpleado extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(confirmar_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(idpass, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(idpass, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
                         .addComponent(ver_pedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(51, Short.MAX_VALUE))
