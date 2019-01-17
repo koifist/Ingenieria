@@ -31,14 +31,14 @@ public class IEmpleado extends javax.swing.JFrame {
         icon = new javax.swing.JLabel();
         realizar_pedido = new javax.swing.JButton();
         id_label = new javax.swing.JLabel();
-        confirmar_producto = new javax.swing.JButton();
+        confirmar_pedido = new javax.swing.JButton();
         idpass = new javax.swing.JButton();
-        proveedor = new javax.swing.JComboBox<>();
+        case_prov = new javax.swing.JComboBox<String>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        lista_pedidos = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        realizar_pedido1 = new javax.swing.JButton();
+        descripcion = new javax.swing.JTextArea();
+        actualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(908, 600));
@@ -62,23 +62,24 @@ public class IEmpleado extends javax.swing.JFrame {
         });
 
         id_label.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        id_label.setForeground(new java.awt.Color(0, 0, 153));
         id_label.setText("ID");
 
-        confirmar_producto.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
-        confirmar_producto.setText("Confirmar recepcion pedido");
-        confirmar_producto.addActionListener(new java.awt.event.ActionListener() {
+        confirmar_pedido.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        confirmar_pedido.setText("Confirmar recepcion pedido");
+        confirmar_pedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmar_productoActionPerformed(evt);
+                confirmar_pedidoActionPerformed(evt);
             }
         });
 
         idpass.setFont(new java.awt.Font("Cambria", 1, 23)); // NOI18N
         idpass.setText("Cambiar Contraseña");
 
-        proveedor.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        proveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        case_prov.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        case_prov.setMaximumRowCount(20);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        lista_pedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -87,7 +88,7 @@ public class IEmpleado extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
@@ -101,23 +102,25 @@ public class IEmpleado extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(lista_pedidos);
+        if (lista_pedidos.getColumnModel().getColumnCount() > 0) {
+            lista_pedidos.getColumnModel().getColumn(0).setResizable(false);
+            lista_pedidos.getColumnModel().getColumn(1).setResizable(false);
+            lista_pedidos.getColumnModel().getColumn(2).setResizable(false);
+            lista_pedidos.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        descripcion.setEditable(false);
+        descripcion.setColumns(20);
+        descripcion.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        descripcion.setRows(5);
+        jScrollPane3.setViewportView(descripcion);
 
-        realizar_pedido1.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
-        realizar_pedido1.setText("Ver Contenido Pedido");
-        realizar_pedido1.addActionListener(new java.awt.event.ActionListener() {
+        actualizar.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        actualizar.setText("Actualizar");
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                realizar_pedido1ActionPerformed(evt);
+                actualizarActionPerformed(evt);
             }
         });
 
@@ -127,55 +130,50 @@ public class IEmpleado extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(realizar_pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(idpass, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE))
-                                    .addComponent(proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(confirmar_producto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(confirmar_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(realizar_pedido1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)))))
-                .addGap(44, 44, 44))
+                                .addComponent(idpass, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(case_prov, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(realizar_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(realizar_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(idpass, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(confirmar_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(realizar_pedido1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confirmar_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(case_prov, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(realizar_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idpass, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,17 +190,17 @@ public class IEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void confirmar_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmar_productoActionPerformed
+    private void confirmar_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmar_pedidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_confirmar_productoActionPerformed
+    }//GEN-LAST:event_confirmar_pedidoActionPerformed
 
     private void realizar_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizar_pedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_realizar_pedidoActionPerformed
 
-    private void realizar_pedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizar_pedido1ActionPerformed
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_realizar_pedido1ActionPerformed
+    }//GEN-LAST:event_actualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,17 +245,17 @@ public class IEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton confirmar_producto;
+    public javax.swing.JButton actualizar;
+    public javax.swing.JComboBox<String> case_prov;
+    public javax.swing.JButton confirmar_pedido;
+    public javax.swing.JTextArea descripcion;
     private javax.swing.JLabel icon;
-    private javax.swing.JLabel id_label;
-    private javax.swing.JButton idpass;
-    private javax.swing.JPanel jPanel3;
+    public javax.swing.JLabel id_label;
+    public javax.swing.JButton idpass;
+    public javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JComboBox<String> proveedor;
-    private javax.swing.JButton realizar_pedido;
-    private javax.swing.JButton realizar_pedido1;
+    public javax.swing.JTable lista_pedidos;
+    public javax.swing.JButton realizar_pedido;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,7 +2,7 @@ package Modelo;
 
 public class Compra {
 
-    public String id;
+    public int id;
     public Usuario user;
     public float precio;
     public String descripcion;
@@ -16,11 +16,11 @@ public class Compra {
         this.fecha = fecha;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

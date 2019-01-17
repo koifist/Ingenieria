@@ -30,16 +30,13 @@ public class ICliente extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         idpass = new javax.swing.JButton();
-        verCompra = new javax.swing.JButton();
-        idshow = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lista_compras = new javax.swing.JTable();
         realizarCompra = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        compraDescripcion = new javax.swing.JTextArea();
+        descripcion = new javax.swing.JTextArea();
         idLabel = new javax.swing.JLabel();
-        idCompra = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -55,17 +52,6 @@ public class ICliente extends javax.swing.JFrame {
 
         idpass.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         idpass.setText("Cambiar Contraseña");
-
-        verCompra.setFont(new java.awt.Font("Cambria", 1, 30)); // NOI18N
-        verCompra.setText("Ver Compra");
-        verCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verCompraActionPerformed(evt);
-            }
-        });
-
-        idshow.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        idshow.setText("Compra:");
 
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconos/icon.png"))); // NOI18N
         icon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -114,17 +100,14 @@ public class ICliente extends javax.swing.JFrame {
             }
         });
 
-        compraDescripcion.setColumns(20);
-        compraDescripcion.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        compraDescripcion.setRows(5);
-        jScrollPane2.setViewportView(compraDescripcion);
+        descripcion.setColumns(20);
+        descripcion.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        descripcion.setRows(5);
+        jScrollPane2.setViewportView(descripcion);
 
         idLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         idLabel.setForeground(new java.awt.Color(0, 0, 204));
         idLabel.setText("Id");
-
-        idCompra.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        idCompra.setText("Id");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,28 +115,18 @@ public class ICliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(idpass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(realizarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(idshow, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(idCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(idpass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(realizarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(icon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(verCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 125, 125))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))))
+                .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,22 +137,19 @@ public class ICliente extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(idLabel)
+                                .addGap(366, 366, 366))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(verCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)))
+                                .addComponent(jScrollPane2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addComponent(realizarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(idpass)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idshow, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(idpass)
+                        .addGap(35, 35, 35)))
                 .addContainerGap())
         );
 
@@ -196,10 +166,6 @@ public class ICliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void verCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verCompraActionPerformed
-
-    }//GEN-LAST:event_verCompraActionPerformed
 
     private void realizarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarCompraActionPerformed
         // TODO add your handling code here:
@@ -231,12 +197,10 @@ public class ICliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextArea compraDescripcion;
+    public javax.swing.JTextArea descripcion;
     private javax.swing.JLabel icon;
-    public javax.swing.JLabel idCompra;
     public javax.swing.JLabel idLabel;
     public javax.swing.JButton idpass;
-    private javax.swing.JLabel idshow;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
@@ -244,6 +208,5 @@ public class ICliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable lista_compras;
     public javax.swing.JButton realizarCompra;
-    public javax.swing.JButton verCompra;
     // End of variables declaration//GEN-END:variables
 }

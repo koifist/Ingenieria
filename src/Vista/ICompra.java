@@ -33,7 +33,7 @@ public class ICompra extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         carro = new javax.swing.JTable();
         confirmar_compra = new javax.swing.JButton();
-        case_productos = new javax.swing.JComboBox<>();
+        case_productos = new javax.swing.JComboBox<String>();
         numero_productos = new javax.swing.JSpinner();
         añadir_carro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -66,7 +66,7 @@ public class ICompra extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false

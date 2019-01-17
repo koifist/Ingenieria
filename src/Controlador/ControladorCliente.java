@@ -12,6 +12,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -28,32 +33,31 @@ public class ControladorCliente implements ActionListener{
         iniciarCompras();
         cli.setVisible(true);
         cli.setLocationRelativeTo(null);
-        cli.idLabel.setText(user.getId());
-            this.cli.verCompra.addActionListener(this);
-            this.cli.idpass.addActionListener(this);
-            this.cli.realizarCompra.addActionListener(this);
+        cli.idLabel.setText(user.getNombre());
+        this.cli.idpass.addActionListener(this);
+        this.cli.realizarCompra.addActionListener(this);
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        cli.lista_compras.setDefaultRenderer(String.class, centerRenderer);
+        ListSelectionModel modelo = cli.lista_compras.getSelectionModel();
+        modelo.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+            cli.descripcion.setText(compras.get(cli.lista_compras.getSelectedRow()).getDescripcion());        
+            }
+        });
         }
         public void iniciarCompras() throws SQLException{
         compras = new ArrayList<Compra>();
         compras=Cn.getCompras(user.getId());
         DefaultTableModel model = (DefaultTableModel) cli.lista_compras.getModel();
         for(int i=compras.size()-1;i>=0;i--){
-        model.addRow(new Object[]{compras.get(i).getId(), compras.get(i).getFecha(), compras.get(i).getPrecio()});
+        model.addRow(new Object[]{compras.get(i).getId(), compras.get(i).getFecha(), compras.get(i).getPrecio()+"€"});
         }
         }
 
     @Override
     public void actionPerformed(ActionEvent e){
         Object fuente= e.getSource();
-        if(fuente==cli.verCompra){
-            try {
-            compras=Cn.getCompras(user.getId());
-            } catch (SQLException ex) {
-            Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            cli.compraDescripcion.setText(compras.get(compras.size()-cli.lista_compras.getSelectedRow()-1).getDescripcion());
-            cli.idCompra.setText(compras.get(compras.size()-cli.lista_compras.getSelectedRow()-1).getId());
-        }
         if(fuente==cli.idpass){
             ICambio cambio=new ICambio();
             ControladorCambio control= new ControladorCambio(user,cambio,Cn);
