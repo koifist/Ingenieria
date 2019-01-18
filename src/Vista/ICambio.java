@@ -49,7 +49,6 @@ public class ICambio extends javax.swing.JFrame {
         icon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         pass_actual.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        pass_actual.setText("Password");
         pass_actual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pass_actualActionPerformed(evt);
@@ -66,7 +65,6 @@ public class ICambio extends javax.swing.JFrame {
         jLabel4.setText("Nueva Contraseña");
 
         pass_nueva_confirm.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        pass_nueva_confirm.setText("Password");
         pass_nueva_confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pass_nueva_confirmActionPerformed(evt);
@@ -74,7 +72,6 @@ public class ICambio extends javax.swing.JFrame {
         });
 
         pass_nueva.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        pass_nueva.setText("Password");
         pass_nueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pass_nuevaActionPerformed(evt);

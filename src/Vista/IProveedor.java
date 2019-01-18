@@ -32,7 +32,7 @@ public class IProveedor extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lista_productos = new javax.swing.JTable();
-        delete = new javax.swing.JButton();
+        actualizar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -40,24 +40,25 @@ public class IProveedor extends javax.swing.JFrame {
         precio = new javax.swing.JTextField();
         icon = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        boton_add = new javax.swing.JButton();
+        anadir = new javax.swing.JButton();
         id_label = new javax.swing.JLabel();
         idpass = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        descripcion_pedido = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        lista_productos1 = new javax.swing.JTable();
+        lista_pedidos = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         descripcion = new javax.swing.JTextPane();
-        delete1 = new javax.swing.JButton();
+        enviar_pedido = new javax.swing.JButton();
+        borrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(908, 600));
-        setSize(new java.awt.Dimension(908, 600));
+        setMinimumSize(new java.awt.Dimension(1200, 650));
+        setSize(new java.awt.Dimension(1200, 650));
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
 
-        lista_productos.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 12)); // NOI18N
+        lista_productos.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lista_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -67,7 +68,7 @@ public class IProveedor extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Float.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -84,22 +85,25 @@ public class IProveedor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(lista_productos);
         if (lista_productos.getColumnModel().getColumnCount() > 0) {
             lista_productos.getColumnModel().getColumn(0).setResizable(false);
+            lista_productos.getColumnModel().getColumn(0).setPreferredWidth(100);
             lista_productos.getColumnModel().getColumn(1).setResizable(false);
-            lista_productos.getColumnModel().getColumn(2).setHeaderValue("Acepted");
+            lista_productos.getColumnModel().getColumn(1).setPreferredWidth(80);
+            lista_productos.getColumnModel().getColumn(2).setResizable(false);
+            lista_productos.getColumnModel().getColumn(2).setPreferredWidth(40);
         }
 
-        delete.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        delete.setText("Delete Product");
-        delete.addActionListener(new java.awt.event.ActionListener() {
+        actualizar.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        actualizar.setText("Actualizar datos");
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteActionPerformed(evt);
+                actualizarActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jLabel2.setText("Name");
 
-        nombre.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        nombre.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreActionPerformed(evt);
@@ -112,7 +116,7 @@ public class IProveedor extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jLabel4.setText("Precio");
 
-        precio.setFont(new java.awt.Font("Cambria", 1, 16)); // NOI18N
+        precio.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         precio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 precioActionPerformed(evt);
@@ -125,11 +129,11 @@ public class IProveedor extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
 
-        boton_add.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        boton_add.setText("ADD Product");
-        boton_add.addActionListener(new java.awt.event.ActionListener() {
+        anadir.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        anadir.setText("Añadir Producto");
+        anadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_addActionPerformed(evt);
+                anadirActionPerformed(evt);
             }
         });
 
@@ -140,22 +144,24 @@ public class IProveedor extends javax.swing.JFrame {
         idpass.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         idpass.setText("Cambiar Contraseña");
 
-        jScrollPane2.setViewportView(jTextPane1);
+        descripcion_pedido.setEditable(false);
+        descripcion_pedido.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        jScrollPane2.setViewportView(descripcion_pedido);
 
-        lista_productos1.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 12)); // NOI18N
-        lista_productos1.setModel(new javax.swing.table.DefaultTableModel(
+        lista_pedidos.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        lista_pedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Pedido Id", "Price"
+                "Pedido Id", "Price", "Fecha"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -166,19 +172,32 @@ public class IProveedor extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(lista_productos1);
-        if (lista_productos1.getColumnModel().getColumnCount() > 0) {
-            lista_productos1.getColumnModel().getColumn(0).setResizable(false);
-            lista_productos1.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane3.setViewportView(lista_pedidos);
+        if (lista_pedidos.getColumnModel().getColumnCount() > 0) {
+            lista_pedidos.getColumnModel().getColumn(0).setResizable(false);
+            lista_pedidos.getColumnModel().getColumn(0).setPreferredWidth(60);
+            lista_pedidos.getColumnModel().getColumn(1).setResizable(false);
+            lista_pedidos.getColumnModel().getColumn(1).setPreferredWidth(100);
+            lista_pedidos.getColumnModel().getColumn(2).setResizable(false);
+            lista_pedidos.getColumnModel().getColumn(2).setPreferredWidth(100);
         }
 
+        descripcion.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jScrollPane4.setViewportView(descripcion);
 
-        delete1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        delete1.setText("Enviar pedido");
-        delete1.addActionListener(new java.awt.event.ActionListener() {
+        enviar_pedido.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        enviar_pedido.setText("Enviar pedido");
+        enviar_pedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delete1ActionPerformed(evt);
+                enviar_pedidoActionPerformed(evt);
+            }
+        });
+
+        borrar.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
+        borrar.setText("Borrar Producto");
+        borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarActionPerformed(evt);
             }
         });
 
@@ -198,7 +217,7 @@ public class IProveedor extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(boton_add, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                                        .addComponent(anadir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                                         .addComponent(precio, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -207,72 +226,75 @@ public class IProveedor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                        .addComponent(id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(borrar, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(enviar_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(214, 214, 214))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(delete1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(idpass)
-                                .addGap(5, 5, 5)))
-                        .addContainerGap())))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(idpass, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addContainerGap())
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(15, Short.MAX_VALUE)
-                        .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(14, 14, 14))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(jLabel4)
-                        .addGap(1, 1, 1)
-                        .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(boton_add, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(delete1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idpass, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jScrollPane2)))
-                        .addGap(53, 53, 53)))
+                        .addComponent(jLabel5)
+                        .addGap(14, 14, 14))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jLabel4)
+                .addGap(1, 1, 1)
+                .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(anadir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(id_label, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idpass, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enviar_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -293,21 +315,25 @@ public class IProveedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreActionPerformed
 
-    private void boton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_addActionPerformed
+    private void anadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boton_addActionPerformed
+    }//GEN-LAST:event_anadirActionPerformed
 
-    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteActionPerformed
+    }//GEN-LAST:event_actualizarActionPerformed
 
     private void precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_precioActionPerformed
 
-    private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed
+    private void enviar_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_pedidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_delete1ActionPerformed
+    }//GEN-LAST:event_enviar_pedidoActionPerformed
+
+    private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_borrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,13 +372,15 @@ public class IProveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton boton_add;
-    private javax.swing.JButton delete;
-    private javax.swing.JButton delete1;
+    public javax.swing.JButton actualizar;
+    public javax.swing.JButton anadir;
+    public javax.swing.JButton borrar;
     public javax.swing.JTextPane descripcion;
+    public javax.swing.JTextPane descripcion_pedido;
+    public javax.swing.JButton enviar_pedido;
     private javax.swing.JLabel icon;
     public javax.swing.JLabel id_label;
-    private javax.swing.JButton idpass;
+    public javax.swing.JButton idpass;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -362,9 +390,8 @@ public class IProveedor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTable lista_productos;
-    private javax.swing.JTable lista_productos1;
+    public javax.swing.JTable lista_pedidos;
+    public javax.swing.JTable lista_productos;
     public javax.swing.JTextField nombre;
     public javax.swing.JTextField precio;
     // End of variables declaration//GEN-END:variables

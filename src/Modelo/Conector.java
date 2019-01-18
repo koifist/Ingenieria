@@ -137,6 +137,23 @@ public class Conector {
             st.close();
             return pedidos;
     }
+    public Pedido getPedido(int Id) throws SQLException{
+            //2. Crear objeto statement
+            PreparedStatement st;
+            st = conn.prepareStatement("SELECT * FROM pedidos WHERE (id=?)");
+            st.setInt(1, Id);
+            ResultSet rs=st.executeQuery();
+            Pedido p=new Pedido();
+            if(rs.next()) {
+            p.setId(rs.getInt(1));
+            p.setUser(getUser(rs.getString(2)));
+            p.setPrecio(rs.getFloat(3));
+            p.setDescripcion(rs.getString(4));
+            p.setFecha(rs.getString(5));
+            }
+            st.close();
+            return p;
+    }
     public void setPedido(Pedido pedido) throws SQLException {
 
             //2. Crear objeto statement
@@ -183,8 +200,8 @@ public class Conector {
             PreparedStatement st = null;
             if(estado=="0") st= conn.prepareStatement("SELECT * FROM productos WHERE estado=0");
             else{
-                if(estado=="1") st= conn.prepareStatement("SELECT * FROM productos WHERE estado=1");
-                else{st= conn.prepareStatement("SELECT * FROM productos WHERE usuario=?");
+                if(estado=="1") st= conn.prepareStatement("SELECT * FROM productos WHERE estado>0");
+                else{st= conn.prepareStatement("SELECT * FROM productos WHERE (usuario=?) AND (estado<2)");
                     st.setNString(1,estado);
                 }
             }
@@ -204,6 +221,18 @@ public class Conector {
             st.close();
             return productos;
     }
+    public void setProducto(Producto producto) throws SQLException {
+
+            //2. Crear objeto statement
+            PreparedStatement st = conn.prepareStatement("INSERT INTO "
+            + "productos (nombre, descripcion, usuario, preciop) VALUES (?, ?, ?, ?)");
+            st.setNString(1, producto.getNombre());
+            st.setNString(2, producto.getDescripcion());
+            st.setNString(3, producto.getUser().getId());
+            st.setFloat(4, producto.getPrecio(2));
+            st.executeUpdate();
+            st.close();    
+    }
     public void updateProductoc(Producto producto) throws SQLException{
             //2. Crear objeto statement
             PreparedStatement st = conn.prepareStatement("UPDATE productos"+
@@ -212,14 +241,23 @@ public class Conector {
             st.setInt(2, producto.getId());
             st.executeUpdate();
             st.close();
+        
     }
     public void updateProductoe(Producto producto) throws SQLException{
-            //2. Crear objeto statement
-            PreparedStatement st = conn.prepareStatement("UPDATE productos"+
-            " SET estado = ? WHERE id = ?");
-            st.setInt(1, producto.getEstado());
-            st.setInt(2, producto.getId());
-            st.executeUpdate();
-            st.close();
+            if(producto.getEstado()==2 && producto.getCantidad()==0){
+                PreparedStatement st = conn.prepareStatement("DELETE from productos"+
+                " WHERE id = ?");
+                st.setInt(1, producto.getId());
+                st.executeUpdate();
+                st.close();
+            }else{
+                //2. Crear objeto statement
+                PreparedStatement st = conn.prepareStatement("UPDATE productos"+
+                " SET estado = ? WHERE id = ?");
+                st.setInt(1, producto.getEstado());
+                st.setInt(2, producto.getId());
+                st.executeUpdate();
+                st.close();
+            }
     }
 }

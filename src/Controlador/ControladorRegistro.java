@@ -10,6 +10,7 @@ import Vista.IRegistro;
 import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.logging.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +20,9 @@ class ControladorRegistro implements ActionListener{
 private int roll;
 private IRegistro reg;
 private Conector Cn;
-    ControladorRegistro(IRegistro reg, Conector Cn, int i) {
-        this.roll=i;
+private boolean correcto;
+    ControladorRegistro(IRegistro reg, Conector Cn, int roll) {
+        this.roll=roll;
         this.reg=reg;
         this.Cn=Cn;
         reg.setLocationRelativeTo(null);
@@ -38,44 +40,48 @@ private Conector Cn;
 
 @Override
     public void actionPerformed(ActionEvent e) {
-        reg.error.setText("");
+        correcto=true;
         reg.user_error.setVisible(false);
         reg.pass_error.setVisible(false);
         reg.rpass_error.setVisible(false);
         reg.name_error.setVisible(false);
         reg.DNI_error.setVisible(false);
         reg.address_error.setVisible(false);
-       if(reg.user.getText().equals("")){
-           reg.error.setText("Rellene todos los campos.");
-           reg.user_error.setVisible(true);
+       if(reg.user.getText().isEmpty() || reg.user.getText().length()<5 || reg.user.getText().length()>15){
+            JOptionPane.showMessageDialog(null,"Introduzca un usuario que contenga entre 5 y 15 caracteres");
+            reg.user_error.setVisible(true);
+            correcto=false;
        }
-       if(reg.pass.getText().equals("")){
-           reg.error.setText("Rellene todos los campos.");
+       if(reg.pass.getText().isEmpty() || reg.pass.getText().length()<5 || reg.pass.getText().length()>10 ){
+           JOptionPane.showMessageDialog(null,"Introduzca una contraseña que contenga entre 5 y 10 caracteres");
            reg.pass_error.setVisible(true);
+           correcto=false;
        }
-       if(reg.rpass.getText().equals("")){
-           reg.error.setText("Rellene todos los campos.");
-           reg.rpass_error.setVisible(true);
-       }
-       if(reg.name.getText().equals("")){
-           reg.error.setText("Rellene todos los campos.");
+       if(reg.name.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null,"Introduzca su nombre y apellidos");
            reg.name_error.setVisible(true);
+           correcto=false;
        }
-       if(reg.DNI.getText().equals("")){
-           reg.error.setText("Rellene todos los campos.");
+       if(reg.DNI.getText().isEmpty() || reg.DNI.getText().length()!=9){
+           if(roll==1 || roll==3){
+           JOptionPane.showMessageDialog(null,"Introduzca el DNI con el formato 25535449K");
+           }else{
+           JOptionPane.showMessageDialog(null,"Introduzca el CIF con el formato V8242066B");
+    
+           }
+           correcto=false;
            reg.DNI_error.setVisible(true);
        }
-       if(reg.address.getText().equals("")){
-           reg.error.setText("Rellene todos los campos.");
+       if(reg.address.getText().isEmpty() || reg.address.getText().length()<5){
+           JOptionPane.showMessageDialog(null,"Introduzca una direccion valida.");
            reg.address_error.setVisible(true);
+           correcto=false;
        }
-       if(reg.error.getText().equals("")){
-         
+       if(correcto==true){  
             try {
                 Usuario user=Cn.getUser(reg.user.getText());
                 if(user.id == null){
                     if(reg.rpass.getText().equals(reg.pass.getText())){
-                        if(reg.DNI.getText().length()==9){
                             user.setId(reg.user.getText());
                             user.setPass(reg.pass.getText());
                             user.setNombre(reg.name.getText());
@@ -84,24 +90,23 @@ private Conector Cn;
                             user.setDireccion(reg.address.getText());
                             Cn.setUser(user);
                             reg.dispose();
-                        }else{
-                            reg.error.setText("DNI incorrecto");
-                            reg.DNI_error.setVisible(true);
-                        }
                     }else{
-                        reg.error.setText("La contraseña no coincide.");
+                        JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden.");
                         reg.pass_error.setVisible(true);
                         reg.rpass_error.setVisible(true);
                     }
                 }else{
-                    reg.error.setText("El usuario ya existe.");
+                    JOptionPane.showMessageDialog(null,"El usuario que ha introducido ya existe.");
                     reg.user_error.setVisible(true);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
-            }
             } 
        }
     }
+    }
+
+
+    
     
 

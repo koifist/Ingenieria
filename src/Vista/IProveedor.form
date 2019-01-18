@@ -4,10 +4,10 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[908, 600]"/>
+      <Dimension value="[1200, 650]"/>
     </Property>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[908, 600]"/>
+      <Dimension value="[1200, 650]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -61,7 +61,7 @@
                                       <Component id="jLabel2" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
                                       <Component id="jLabel4" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="boton_add" alignment="0" pref="208" max="32767" attributes="0"/>
+                                          <Component id="anadir" alignment="0" pref="208" max="32767" attributes="0"/>
                                           <Component id="precio" alignment="0" max="32767" attributes="0"/>
                                           <Component id="nombre" alignment="0" max="32767" attributes="0"/>
                                       </Group>
@@ -77,31 +77,37 @@
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="89" max="32767" attributes="0"/>
-                          <Component id="id_label" min="-2" pref="512" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jScrollPane1" min="-2" pref="280" max="-2" attributes="0"/>
+                                  <Component id="borrar" pref="370" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane3" pref="0" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane2" min="-2" pref="208" max="-2" attributes="0"/>
+                                  <Component id="enviar_pedido" min="-2" pref="382" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="delete" min="-2" pref="280" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="actualizar" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jScrollPane3" min="-2" pref="382" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="delete1" pref="174" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="idpass" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane2" min="-2" pref="208" max="-2" attributes="0"/>
+                                      <Component id="idpass" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                          <Component id="id_label" min="-2" pref="512" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -110,58 +116,55 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="icon" min="-2" pref="188" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="15" max="32767" attributes="0"/>
-                          <Component id="icon" min="-2" pref="188" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="nombre" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane4" min="-2" pref="144" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="precio" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="boton_add" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="delete" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="delete1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="idpass" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="id_label" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jScrollPane3" alignment="1" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane2" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="nombre" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" min="-2" pref="144" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                  <Component id="precio" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="anadir" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="id_label" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="actualizar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="idpass" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane3" alignment="1" pref="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="1" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jScrollPane2" min="-2" pref="380" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="borrar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="enviar_pedido" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -177,29 +180,29 @@
             <Component class="javax.swing.JTable" name="lista_productos">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Copperplate Gothic Bold" size="12" style="1"/>
+                  <Font name="Cambria" size="14" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="3" rowCount="0">
                     <Column editable="false" title="Name" type="java.lang.String"/>
-                    <Column editable="false" title="Price" type="java.lang.Float"/>
-                    <Column editable="false" title="Acepted" type="java.lang.Boolean"/>
+                    <Column editable="false" title="Price" type="java.lang.String"/>
+                    <Column editable="false" title="Acepted" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="100" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="80" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Acepted"/>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="40" resizable="false">
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
@@ -209,19 +212,25 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="delete">
+        <Component class="javax.swing.JButton" name="actualizar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Delete Product"/>
+            <Property name="text" type="java.lang.String" value="Actualizar datos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="actualizarActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -234,7 +243,7 @@
         <Component class="javax.swing.JTextField" name="nombre">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Cambria" size="16" style="1"/>
+              <Font name="Cambria" size="14" style="1"/>
             </Property>
           </Properties>
           <Events>
@@ -263,7 +272,7 @@
         <Component class="javax.swing.JTextField" name="precio">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Cambria" size="16" style="1"/>
+              <Font name="Cambria" size="14" style="1"/>
             </Property>
           </Properties>
           <Events>
@@ -289,16 +298,19 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="boton_add">
+        <Component class="javax.swing.JButton" name="anadir">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ADD Product"/>
+            <Property name="text" type="java.lang.String" value="A&#xf1;adir Producto"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_addActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="anadirActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="id_label">
           <Properties>
@@ -321,6 +333,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cambiar Contrase&#xf1;a"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
           <AuxValues>
@@ -329,7 +344,16 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextPane" name="jTextPane1">
+            <Component class="javax.swing.JTextPane" name="descripcion_pedido">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Cambria" size="14" style="1"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -340,25 +364,31 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="lista_productos1">
+            <Component class="javax.swing.JTable" name="lista_pedidos">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Copperplate Gothic Bold" size="12" style="1"/>
+                  <Font name="Cambria" size="14" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="2" rowCount="0">
-                    <Column editable="false" title="Pedido Id" type="java.lang.String"/>
-                    <Column editable="false" title="Price" type="java.lang.Float"/>
+                  <Table columnCount="3" rowCount="0">
+                    <Column editable="false" title="Pedido Id" type="java.lang.Integer"/>
+                    <Column editable="false" title="Price" type="java.lang.String"/>
+                    <Column editable="false" title="Fecha" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="60" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="100" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="100" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
@@ -369,6 +399,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -380,13 +413,18 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
             <Component class="javax.swing.JTextPane" name="descripcion">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Cambria" size="14" style="1"/>
+                </Property>
+              </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="delete1">
+        <Component class="javax.swing.JButton" name="enviar_pedido">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cambria" size="18" style="1"/>
@@ -394,8 +432,25 @@
             <Property name="text" type="java.lang.String" value="Enviar pedido"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="delete1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enviar_pedidoActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="borrar">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Cambria" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Borrar Producto"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="borrarActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

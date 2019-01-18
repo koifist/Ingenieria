@@ -39,7 +39,6 @@ public class Inicio extends javax.swing.JFrame {
         sign_in = new javax.swing.JButton();
         sign_up = new javax.swing.JButton();
         icon = new javax.swing.JLabel();
-        error = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -81,9 +80,6 @@ public class Inicio extends javax.swing.JFrame {
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconos/icon.png"))); // NOI18N
         icon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        error.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        error.setForeground(new java.awt.Color(255, 0, 0));
-
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel1.setText("PASSWORD");
 
@@ -98,12 +94,8 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(icon)
-                        .addGap(87, 87, 87)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(error, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                                .addGap(227, 227, 227)
-                                .addComponent(sign_up, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(314, 314, 314)
+                        .addComponent(sign_up, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
@@ -121,9 +113,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(error, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
+                        .addGap(158, 158, 158)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -205,7 +195,6 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel error;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

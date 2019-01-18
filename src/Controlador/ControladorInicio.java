@@ -8,6 +8,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class ControladorInicio implements ActionListener{
     private Inicio Inicio;
@@ -32,7 +33,7 @@ public class ControladorInicio implements ActionListener{
             try {
                 Usuario user=Cn.getUser(Inicio.user.getText()); //To change body of generated methods, choose Tools | Templates.
                 if(user.getId()==null){
-                    Inicio.error.setText("El usuario no existe");
+                    JOptionPane.showMessageDialog(null,"Introduzca un usuario valido.");
                 }else{
                     if(user.getPass().equals(Inicio.pass.getText())){
                         if(user.getRoll()==0){
@@ -57,7 +58,7 @@ public class ControladorInicio implements ActionListener{
                             ControladorCliente control=new ControladorCliente(cli,Cn,user);
                         }
                     }else{
-                        Inicio.error.setText("Contraseña incorrecta");
+                        JOptionPane.showMessageDialog(null,"La contraseña es incorrecta.");
                     }
                 }
             } catch (SQLException ex) {
