@@ -212,7 +212,6 @@ public class Conector {
                 producto.setEstado(resultSet.getInt(8));
             }
             statement.close();
-                                System.out.println(producto.getCantidad() + producto.getNombre());
             return producto;
     }
     
