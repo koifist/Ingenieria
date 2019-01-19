@@ -29,13 +29,13 @@ class ControladorRegistro implements ActionListener{
         interfaz_registro.setVisible(true);
         //Añadimos el boton sign_up al ActionListener para poder leer cuando lo presionamos
         interfaz_registro.sign_up.addActionListener(this);
-        ocultarErrores();
+        ocultar_errores();
         //Si vamos a dar de alta a la empresa el Label de DNI lo cambiamos a CIF
         if(roll_user==2) interfaz_registro.DNI_label.setText("CIF");     
     }
     
     //Ocultamos todos los asteriscos de errores en la introduzccion de valores
-    private void ocultarErrores(){
+    private void ocultar_errores(){
         interfaz_registro.user_error.setVisible(false);
         interfaz_registro.pass_error.setVisible(false);
         interfaz_registro.rpass_error.setVisible(false);
@@ -44,11 +44,12 @@ class ControladorRegistro implements ActionListener{
         interfaz_registro.address_error.setVisible(false);
     }
     
-    //Metodo al que se llama cuando interactuas con algun objeto de la interfaz que se encuentra en el ActionListener
+    /*Metodo al que accedemos cuando activamos algun elemento 
+      de la interfaz que se encuentra en el ActionListener*/
     public void actionPerformed(ActionEvent e) {
         //Inicializamos la variable que indica si estan correctos todos los campos de registro
         correcto=true;
-        ocultarErrores();
+        ocultar_errores();
         
         //Si no introduces un usuario o es menor de 5 caracteres o mayor de 15
         if(interfaz_registro.user.getText().isEmpty() || interfaz_registro.user.getText().length()<5 
@@ -134,8 +135,3 @@ class ControladorRegistro implements ActionListener{
         }
     }
 }
-
-
-    
-    
-

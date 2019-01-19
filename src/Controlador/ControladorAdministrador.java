@@ -11,45 +11,63 @@ import javax.swing.event.*;
 import javax.swing.table.*;
 
 public class ControladorAdministrador implements ActionListener{
-private IAdministrador adm;
-private Conector Cn;
-private ArrayList<Producto> productos;
-    ControladorAdministrador(IAdministrador adm, Conector Cn) throws SQLException {
-        this.adm=adm;
-        this.Cn=Cn;
-        adm.setVisible(true);
-        adm.setLocationRelativeTo(null);
+    //Interfaz del administrador
+    private IAdministrador interfaz_administrador;
+    //Conector con la base de datos
+    private Conector conector;
+    //Array de productos
+    private ArrayList<Producto> productos;
+    
+    //Constructor
+    ControladorAdministrador(IAdministrador i_administrador, Conector conector) throws SQLException {
+        //Inicializamos las variables globales
+        this.interfaz_administrador=i_administrador;
+        this.conector=conector;
+        //Colocamos la interfaz en el centro de la pantalla
+        interfaz_administrador.setLocationRelativeTo(null);
+        //Hacemos la interfaz visible
+        interfaz_administrador.setVisible(true);
+        //Actualizamos el array de productos y la JTable
         actualizar();
+        //Alineamos los elementos de las JTables al centro
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-        adm.list_prod.setDefaultRenderer(String.class, centerRenderer);
-        adm.list_prod.setDefaultRenderer(int.class, centerRenderer);
-        adm.nuevo_empleado.addActionListener(this);
-        adm.nuevo_proveedor.addActionListener(this);
-        adm.aceptar_producto.addActionListener(this);
-        adm.modificar_precio.addActionListener(this);
-        adm.borrar_producto.addActionListener(this);
-        ListSelectionModel modelo = adm.list_prod.getSelectionModel();
+        interfaz_administrador.list_prod.setDefaultRenderer(String.class, centerRenderer);
+        interfaz_administrador.list_prod.setDefaultRenderer(int.class, centerRenderer);
+        //Añadimos elementos de la interfaz al ActionListener
+        interfaz_administrador.nuevo_empleado.addActionListener(this);
+        interfaz_administrador.nuevo_proveedor.addActionListener(this);
+        interfaz_administrador.aceptar_producto.addActionListener(this);
+        interfaz_administrador.modificar_precio.addActionListener(this);
+        interfaz_administrador.borrar_producto.addActionListener(this);
+        //Creamos un SelectionModel para mostrar el precio de los productos
+        ListSelectionModel modelo = interfaz_administrador.list_prod.getSelectionModel();
         modelo.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
                 try{
-                adm.prize_cli.setText("");
-                adm.prize_prov.setText(Float.toString(productos.get(adm.list_prod.getSelectedRow()).getPrecio(0)));
-                if(productos.get(adm.list_prod.getSelectedRow()).getPrecio(3)>0){
-                adm.prize_cli.setText(Float.toString(productos.get(adm.list_prod.getSelectedRow()).getPrecio(3)));   
-                }
+                    interfaz_administrador.prize_cli.setText("");
+                    interfaz_administrador.prize_prov.setText(Float.toString(productos.get(interfaz_administrador.list_prod.getSelectedRow()).getPrecio(0)));
+                    if(productos.get(interfaz_administrador.list_prod.getSelectedRow()).getPrecio(3)>0){
+                        interfaz_administrador.prize_cli.setText(Float.toString(productos.get(interfaz_administrador.list_prod.getSelectedRow()).getPrecio(3)));   
+                    }
                 }catch(Exception ee){}
-                }
+            }
         });
     }
-     private void actualizar() throws SQLException {
-        DefaultTableModel modelo = (DefaultTableModel) adm.list_prod.getModel();
-        int a =modelo.getRowCount()-1;
-        for(int i=a; i>=0; i--){
+    
+    //Actualiza el array de productos y la Jtable
+    private void actualizar() throws SQLException {
+        //Creamos el TableModel para modificar los elementos del JTable
+        DefaultTableModel modelo = (DefaultTableModel) interfaz_administrador.list_prod.getModel();
+        //Borramos las filas de la JTable
+        int n_filas =modelo.getRowCount()-1;
+        for(int i=n_filas; i>=0; i--){
         modelo.removeRow(i);
         }
+        //Actualizamos el array de productos
         productos=null;
-        productos=Cn.getProductos("0");
+        productos=conector.getProductos("0");
+        //Rellenamos la JTable con los productos
         for(int i=0;i<productos.size();i++){
             String aceptado="";
             if(productos.get(i).getEstado() == 0) aceptado="Pendiente";
@@ -59,98 +77,130 @@ private ArrayList<Producto> productos;
         }    
     }
 
+    /*Metodo al que accedemos cuando activamos algun elemento 
+      de la interfaz que se encuentra en el ActionListener*/
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Objeto que referencia al elemento de la interfaz que hemos activado
         Object fuente=e.getSource();
-        if(fuente==adm.nuevo_empleado){
-            IRegistro reg=new IRegistro();
-            ControladorRegistro control=new ControladorRegistro(reg,Cn,1);
+        
+        //Si activamos nuevo empleado le pasamos un 1 para que sepa que tiene que registrar un empleado
+        if(fuente==interfaz_administrador.nuevo_empleado){
+            IRegistro interfaz_registro=new IRegistro();
+            ControladorRegistro controlador_registro_empleado=new ControladorRegistro(interfaz_registro,conector,1);
         }
-        if(fuente==adm.nuevo_proveedor){
-            IRegistro reg=new IRegistro();
-            ControladorRegistro control=new ControladorRegistro(reg,Cn,2);
+        
+        //Si activamos nuevo proveedor le pasamos un 2 para que sepa que tiene que registrar un proveedor
+        if(fuente==interfaz_administrador.nuevo_proveedor){
+            IRegistro interfaz_registro=new IRegistro();
+            ControladorRegistro controlador_registro_proveedor=new ControladorRegistro(interfaz_registro,conector,2);
         }
-        if(fuente==adm.aceptar_producto){
-            Producto p=new Producto();
-            p=productos.get(adm.list_prod.getSelectedRow());
-            if(p.getEstado()==2){
+        
+        //Si activamos aceptar producto
+        if(fuente==interfaz_administrador.aceptar_producto){
+            //Obtenemos un producto del array en funcion de la fila del JTable seleccionada
+            Producto producto=new Producto();
+            producto=productos.get(interfaz_administrador.list_prod.getSelectedRow());
+            //Si el producto esta borrado
+            if(producto.getEstado()==2){
             JOptionPane.showMessageDialog(null,"El producto ya no esta disponible.");
             }
-            if(p.getEstado()==0){
-            try {
-                float prize=Float.parseFloat(adm.prize_cli.getText());
-                if(prize>0){
-                if(prize<p.getPrecio(0)){
-                JOptionPane.showMessageDialog(null,"El precio de venta es menor que el precio de compra.");
-                }
-                prize=prize*100;
-                prize=(int) prize;
-                prize=prize/100;
-                p.setPrecio_cliente(prize);
-                p.setEstado(1);
-                Cn.updateProducto_estado(p);
-                }
+            
+            //Si el producto esta por confirmar
+            if(producto.getEstado()==0){
+                //Utilizamos el try/catch para comprobar si se ha introducido correctamente el precio
+                try {
+                    float prize=Float.parseFloat(interfaz_administrador.prize_cli.getText());
+                    //Si el precio es mayor que cero
+                    if(prize>0){
+                        //Si el precio de venta al cliente es menor que el de compra al proveedor informamos
+                        if(prize<producto.getPrecio(0)){
+                            JOptionPane.showMessageDialog(null,"El precio de venta es menor que el precio de compra.");
+                        }
+                        //Redondeamos por defecto a 2 decimales
+                        prize=prize*100;
+                        prize=(int) prize;
+                        prize=prize/100;
+                        //Actualizamos el estado del producto y su precio de venta
+                        producto.setPrecio_cliente(prize);
+                        producto.setEstado(1);
+                        conector.updateProducto_estado(producto);
+                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorAdministrador.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null,"El precio introducido no es válido.");
                 }
             }
+            
+            //Actualizamos el array de productos y el JTable
             try {
-            actualizar();
-            } catch (SQLException ex) {
-            Logger.getLogger(ControladorAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            adm.prize_cli.setText("");
-        }
-        if(fuente==adm.modificar_precio){
-            Producto p=new Producto();
-            p=productos.get(adm.list_prod.getSelectedRow());
-            if(p.getEstado()==2){
-            JOptionPane.showMessageDialog(null,"El producto ya no esta disponible.");
-            }
-            if(p.getEstado()==1){
-            try {
-                float prize=Float.parseFloat(adm.prize_cli.getText());
-                if(prize>0){
-                if(prize<p.getPrecio(0)){
-                JOptionPane.showMessageDialog(null,"El precio de venta es menor que el precio de compra.");
-                }
-                prize=prize*100;
-                prize=(int) prize;
-                prize=prize/100;
-                p.setPrecio_cliente(prize);
-                Cn.updateProducto_estado(p);
-                }
-                } catch (SQLException ex) {
-                    Logger.getLogger(ControladorAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(null,"El precio introducido no es válido.");
-                
-            }
-            }
-            try {
-            actualizar();
-            } catch (SQLException ex) {
-            Logger.getLogger(ControladorAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            adm.prize_cli.setText("");
-        }
-    
-    if(fuente==adm.borrar_producto){
-            Producto p=new Producto();
-            p=productos.get(adm.list_prod.getSelectedRow());
-            if(p.getEstado()==2){
-            JOptionPane.showMessageDialog(null,"El producto ya esta borrado.");
-            }
-            p.setEstado(2);
-            try {
-                Cn.updateProducto_estado(p);
                 actualizar();
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorAdministrador.class.getName()).log(Level.SEVERE, null, ex);
             }
-            adm.prize_cli.setText("");
+            //Borramos el precio de la interfaz
+            interfaz_administrador.prize_cli.setText("");
+        }
+        
+        //Si activamos modificar precio
+        if(fuente==interfaz_administrador.modificar_precio){
+            //Obtenemos un producto del array en funcion de la fila del JTable seleccionada
+            Producto producto=new Producto();
+            producto=productos.get(interfaz_administrador.list_prod.getSelectedRow());
+            //Si el producto esta borrado informamos que ya no esta disponible
+            if(producto.getEstado()==2){
+                JOptionPane.showMessageDialog(null,"El producto que quiere modificar ha sido borrado.");
+            }
+            //Utilziamos el try/catch para comprobar si el precio introducido es valido
+            try {
+                float prize=Float.parseFloat(interfaz_administrador.prize_cli.getText());
+                //si el precio es mayor que 0
+                    if(prize>0){
+                        //Si el precio de venta al cliente es menor que el de compra al proveedor informamos
+                        if(prize<producto.getPrecio(0)){
+                            JOptionPane.showMessageDialog(null,"El precio de venta es menor que el precio de compra.");
+                        }
+                    //Redondeamos por defecto a 2 decimales
+                    prize=prize*100;
+                    prize=(int) prize;
+                    prize=prize/100;
+                    //Actualizamos el precio de venta del producto
+                    producto.setPrecio_cliente(prize);
+                    conector.updateProducto_estado(producto);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null,"El precio introducido no es válido.");
+                }
+            //Actualizamos el array de productos y el JTable
+            try {
+                actualizar();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //Borramos el precio de la interfaz-
+            interfaz_administrador.prize_cli.setText("");
+        }
+    
+        //Si activamos borrar producto
+        if(fuente==interfaz_administrador.borrar_producto){
+            //Obtenemos el producto del array en funcion de la fila del JTable seleccionada    
+            Producto producto=new Producto();
+            producto=productos.get(interfaz_administrador.list_prod.getSelectedRow());
+            if(producto.getEstado()==2){
+                JOptionPane.showMessageDialog(null,"El producto ya esta borrado.");
+            }
+            //Cambiamos el estado a borrado
+            producto.setEstado(2);
+            try {
+                //Actualizamos el producto y el array junto con la JTable de la interfaz
+                conector.updateProducto_estado(producto);
+                actualizar();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //Borramos el precio de la interfaz
+            interfaz_administrador.prize_cli.setText("");
         }
     }
-
-   
 }

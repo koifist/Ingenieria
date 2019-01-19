@@ -32,19 +32,19 @@ public class IRegistro extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         name = new javax.swing.JTextField();
-        LabelNombre = new javax.swing.JLabel();
+        nombre_label = new javax.swing.JLabel();
         DNI = new javax.swing.JTextField();
         DNI_label = new javax.swing.JLabel();
         address = new javax.swing.JTextField();
-        LabelDireccion = new javax.swing.JLabel();
+        address_label = new javax.swing.JLabel();
         user = new javax.swing.JTextField();
-        LabelContraseña = new javax.swing.JLabel();
-        LabelUsuario = new javax.swing.JLabel();
+        contrasena_label = new javax.swing.JLabel();
+        usuario_label = new javax.swing.JLabel();
         sign_up = new javax.swing.JButton();
         pass = new javax.swing.JPasswordField();
         icon = new javax.swing.JLabel();
         rpass = new javax.swing.JPasswordField();
-        LabelContraseña1 = new javax.swing.JLabel();
+        contrasena_repetir_label = new javax.swing.JLabel();
         user_error = new javax.swing.JLabel();
         rpass_error = new javax.swing.JLabel();
         pass_error = new javax.swing.JLabel();
@@ -54,6 +54,7 @@ public class IRegistro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sign - Up");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Vista/iconos/icon.png")));
         setMinimumSize(new java.awt.Dimension(800, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 500));
@@ -71,10 +72,10 @@ public class IRegistro extends javax.swing.JFrame {
             }
         });
 
-        LabelNombre.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
-        LabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelNombre.setText("Name");
-        LabelNombre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        nombre_label.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
+        nombre_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nombre_label.setText("Name");
+        nombre_label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         DNI.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         DNI.setMaximumSize(new java.awt.Dimension(30, 300));
@@ -100,9 +101,9 @@ public class IRegistro extends javax.swing.JFrame {
             }
         });
 
-        LabelDireccion.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
-        LabelDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelDireccion.setText("Address");
+        address_label.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
+        address_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        address_label.setText("Address");
 
         user.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         user.setMaximumSize(new java.awt.Dimension(30, 300));
@@ -114,14 +115,14 @@ public class IRegistro extends javax.swing.JFrame {
             }
         });
 
-        LabelContraseña.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
-        LabelContraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelContraseña.setText("Password");
-        LabelContraseña.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        contrasena_label.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
+        contrasena_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        contrasena_label.setText("Password");
+        contrasena_label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        LabelUsuario.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
-        LabelUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelUsuario.setText("User");
+        usuario_label.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
+        usuario_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        usuario_label.setText("User");
 
         sign_up.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         sign_up.setText("Sign Up");
@@ -149,10 +150,10 @@ public class IRegistro extends javax.swing.JFrame {
             }
         });
 
-        LabelContraseña1.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
-        LabelContraseña1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelContraseña1.setText("Repeat Password");
-        LabelContraseña1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        contrasena_repetir_label.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
+        contrasena_repetir_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        contrasena_repetir_label.setText("Repeat Password");
+        contrasena_repetir_label.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         user_error.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         user_error.setForeground(new java.awt.Color(255, 0, 0));
@@ -188,18 +189,18 @@ public class IRegistro extends javax.swing.JFrame {
                         .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelContraseña1, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                            .addComponent(contrasena_repetir_label, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelContraseña, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LabelUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(contrasena_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(usuario_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DNI_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelDireccion, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(nombre_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(address_label, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -248,7 +249,7 @@ public class IRegistro extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(LabelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(usuario_label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(user_error, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -257,7 +258,7 @@ public class IRegistro extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LabelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(contrasena_label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(pass_error)))
@@ -266,7 +267,7 @@ public class IRegistro extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(rpass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LabelContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(contrasena_repetir_label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(rpass_error)))
@@ -274,7 +275,7 @@ public class IRegistro extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(LabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombre_label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
@@ -290,13 +291,13 @@ public class IRegistro extends javax.swing.JFrame {
                             .addComponent(address_error)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(LabelDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(address_label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addComponent(sign_up, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
-        LabelNombre.getAccessibleContext().setAccessibleParent(name);
+        nombre_label.getAccessibleContext().setAccessibleParent(name);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -379,17 +380,16 @@ public class IRegistro extends javax.swing.JFrame {
     public javax.swing.JTextField DNI;
     public javax.swing.JLabel DNI_error;
     public javax.swing.JLabel DNI_label;
-    private javax.swing.JLabel LabelContraseña;
-    private javax.swing.JLabel LabelContraseña1;
-    private javax.swing.JLabel LabelDireccion;
-    private javax.swing.JLabel LabelNombre;
-    private javax.swing.JLabel LabelUsuario;
     public javax.swing.JTextField address;
     public javax.swing.JLabel address_error;
+    private javax.swing.JLabel address_label;
+    private javax.swing.JLabel contrasena_label;
+    private javax.swing.JLabel contrasena_repetir_label;
     private javax.swing.JLabel icon;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JTextField name;
     public javax.swing.JLabel name_error;
+    private javax.swing.JLabel nombre_label;
     public javax.swing.JPasswordField pass;
     public javax.swing.JLabel pass_error;
     public javax.swing.JPasswordField rpass;
@@ -397,5 +397,6 @@ public class IRegistro extends javax.swing.JFrame {
     public javax.swing.JButton sign_up;
     public javax.swing.JTextField user;
     public javax.swing.JLabel user_error;
+    private javax.swing.JLabel usuario_label;
     // End of variables declaration//GEN-END:variables
 }

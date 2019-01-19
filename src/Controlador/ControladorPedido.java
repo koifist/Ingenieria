@@ -32,7 +32,7 @@ public class ControladorPedido implements ActionListener{
         //Colocamos el nombre del empleado en el interfaz
         interfaz_compra.id_label.setText(empleado.getNombre());
         //inicializamos los productos en el case de eleccion
-        inicializarProductos();
+        inicializar_productos();
         //Colocamos la interfaz en el centro de la pantalla
         interfaz_compra.setLocationRelativeTo(null);
         //Hacemos la interfaz visible
@@ -50,7 +50,7 @@ public class ControladorPedido implements ActionListener{
     }
     
     //Inicializa los productos del case 
-    public void inicializarProductos() throws SQLException{
+    public void inicializar_productos() throws SQLException{
         productos=conector.getProductos(proveedor.getId());
         for(int i=0;i<productos.size();i++){
             interfaz_compra.case_productos.addItem(productos.get(i).getNombre());
@@ -65,7 +65,8 @@ public class ControladorPedido implements ActionListener{
         return null;
     }
     
-    //Motodo al que accedemos cuando activamos algun elemento del interfaz que este en el ActionListener
+    /*Metodo al que accedemos cuando activamos algun elemento 
+      de la interfaz que se encuentra en el ActionListener*/
     @Override
     public void actionPerformed(ActionEvent e) {
         //Objeto que referencia al elemento activado
@@ -146,4 +147,3 @@ public class ControladorPedido implements ActionListener{
         }
     }
 }
-

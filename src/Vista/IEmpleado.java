@@ -41,6 +41,7 @@ public class IEmpleado extends javax.swing.JFrame {
         actualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Vista/iconos/icon.png")));
         setMinimumSize(new java.awt.Dimension(908, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(908, 600));

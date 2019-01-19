@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
 import Modelo.*;
@@ -10,70 +5,101 @@ import Vista.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JLabel;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 
 public class ControladorCliente implements ActionListener{
-    private ICliente cli;
-    private Conector Cn;
-    private Usuario user;
+    //Interfaz de cliente
+    private ICliente interfaz_cliente;
+    //Conector con la base de datos
+    private Conector conector;
+    //Usuario cliente
+    private Usuario cliente;
+    //Array de compras del cliente
     private ArrayList<Compra> compras;
     
-    ControladorCliente(ICliente cli, Conector Cn, Usuario user) throws SQLException {
-        this.cli=cli;
-        this.Cn=Cn;
-        this.user=user;
+    //Constructor
+    ControladorCliente(ICliente i_cliente, Conector conector, Usuario cliente) throws SQLException {
+        //Inicializamos las variables globales
+        this.interfaz_cliente=i_cliente;
+        this.conector=conector;
+        this.cliente=cliente;
+        //Actualizamos el array de compras y el JTable
         actualizarCompras();
-        cli.setVisible(true);
-        cli.setLocationRelativeTo(null);
-        cli.idLabel.setText(user.getNombre());
-        this.cli.idpass.addActionListener(this);
-        this.cli.realizarCompra.addActionListener(this);
+        //Colocamos la interfaz en el centro de la pantalla
+        interfaz_cliente.setLocationRelativeTo(null);
+        //Hacemos la interfaz visible
+        interfaz_cliente.setVisible(true);
+        //Colocamos el nombre del cliente en la interfaz
+        interfaz_cliente.idLabel.setText(cliente.getNombre());
+        //Añadimos los elementos del interfaz al ActionListener
+        this.interfaz_cliente.idpass.addActionListener(this);
+        this.interfaz_cliente.realizarCompra.addActionListener(this);
+        //Alineamos los elementos de la tabla al centro
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-        cli.lista_compras.setDefaultRenderer(String.class, centerRenderer);
-        ListSelectionModel modelo = cli.lista_compras.getSelectionModel();
+        interfaz_cliente.lista_compras.setDefaultRenderer(String.class, centerRenderer);
+        //Creamos un SelectionModel para mostrar la descripcion de una compra seleccionada en la JTable
+        ListSelectionModel modelo = interfaz_cliente.lista_compras.getSelectionModel();
         modelo.addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent e) {    
-                    cli.descripcion.setText(compras.get(compras.size()-cli.lista_compras.getSelectedRow()-1).getDescripcion());
+            public void valueChanged(ListSelectionEvent e) {
+                //Creamos un try/catch para evitar problemas al actualiar las compras
+                try{
+                    interfaz_cliente.descripcion.setText(compras.get(compras.size()
+                            -interfaz_cliente.lista_compras.getSelectedRow()-1).getDescripcion());
+                }catch(Exception compra){}
             }
         });
+    }
+    
+    //Actualiza el array de compras y el JTable
+    public void actualizarCompras() throws SQLException{
+        //Creamos el TableModel para poder modificar el JTable
+        DefaultTableModel modelo = (DefaultTableModel) interfaz_cliente.lista_compras.getModel();
+        int n_filas =modelo.getRowCount()-1;
+        //Borramos todas las filas
+        for(int i=n_filas; i>=0; i--){
+            modelo.removeRow(i);
         }
-        public void actualizarCompras() throws SQLException{
-        DefaultTableModel modelo = (DefaultTableModel) cli.lista_compras.getModel();
-        int a =modelo.getRowCount()-1;
-        for(int i=a; i>=0; i--){
-        modelo.removeRow(i);
-        }
+        //Actualizamos el array de compras
         compras=null;
-        compras=Cn.getCompras(user.getId());
+        compras=conector.getCompras(cliente.getId());
+        //Insertamos las compras en el JTable
         for(int i=compras.size()-1;i>=0;i--){
-        modelo.addRow(new Object[]{compras.get(i).getId(), compras.get(i).getFecha(), compras.get(i).getPrecio()+"€"});
+            modelo.addRow(new Object[]{compras.get(i).getId(), 
+                compras.get(i).getFecha(), compras.get(i).getPrecio()+"€"});
         }
-        }
+    }
 
+    /*Metodo al que accedemos cuando activamos algun elemento 
+      de la interfaz que se encuentra en el ActionListener*/
     @Override
     public void actionPerformed(ActionEvent e){
+        //Objeto que referencia al elemento de la interfaz que hemos activado
         Object fuente= e.getSource();
-        if(fuente==cli.idpass){
-            ICambio cambio=new ICambio();
-            ControladorCambio control= new ControladorCambio(user,cambio,Cn);
+        
+        //Si activamos cambiar contraseña
+        if(fuente==interfaz_cliente.idpass){
+            ICambio interfaz_cambio=new ICambio();
+            ControladorCambio controlador_cambio= new ControladorCambio
+        (cliente,interfaz_cambio,conector);
         }
-        if(fuente==cli.realizarCompra){
-            ICompra com=new ICompra();
+        
+        //Si activamos realizar compra
+        if(fuente==interfaz_cliente.realizarCompra){
+            //Creamos una interfaz de compra
+            ICompra interfaz_compra=new ICompra();
             try {
-                ControladorCompra control=new ControladorCompra(user,Cn,com,cli);
+                /*Creamos un controlador de compra y le pasamos el cliente el conector la interfaz de compra 
+                y la interfaz de cliente para que pueda cerrarla y abrirla y actualizar asi la lista de compras.*/
+                ControladorCompra controlador_compra=new ControladorCompra
+                    (cliente,conector,interfaz_compra,interfaz_cliente);
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-    
+    }  
 }

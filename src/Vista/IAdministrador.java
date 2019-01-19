@@ -45,6 +45,7 @@ public class IAdministrador extends javax.swing.JFrame {
         list_prod = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Vista/iconos/icon.png")));
         setMinimumSize(new java.awt.Dimension(908, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(908, 600));

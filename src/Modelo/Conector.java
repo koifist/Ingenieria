@@ -224,7 +224,7 @@ public class Conector {
             PreparedStatement statement = null;
             if(estado=="0") statement= connection.prepareStatement("SELECT * FROM productos");
             else{
-                if(estado=="1") statement= connection.prepareStatement("SELECT * FROM productos WHERE estado>0");
+                if(estado=="1") statement= connection.prepareStatement("SELECT * FROM productos WHERE estado>0 AND cantidad>0");
                 else{statement= connection.prepareStatement("SELECT * FROM productos WHERE (usuario=?) AND (estado<2)");
                     statement.setNString(1,estado);
                 }

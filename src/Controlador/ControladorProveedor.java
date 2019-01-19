@@ -16,7 +16,7 @@ public class ControladorProveedor implements ActionListener{
     //Conector a la base de datos
     private Conector conector;
     //Objeto usuario del proveedor
-    private Usuario usuario;
+    private Usuario proveedor;
     //Array de los pedidos que le han realizado al proveedor
     private ArrayList<Pedido> array_pedidos;
     //Array de los productos del proveedor que no se han borrado
@@ -29,7 +29,7 @@ public class ControladorProveedor implements ActionListener{
         //Inicializamos las variables globales
         this.interfaz_proveedor=i_proveedor;
         this.conector=conector;
-        this.usuario=user;
+        this.proveedor=user;
         //Actualizamos tanto los arrays de pedidos y productos como los JTable
         actualizar();
         //Alineamos las casillas de los JTable en el centro
@@ -76,7 +76,7 @@ public class ControladorProveedor implements ActionListener{
         }
         //Actualizamos el array de pedidos
         array_pedidos=null;
-        array_pedidos=conector.getPedidos(usuario.getId());
+        array_pedidos=conector.getPedidos(proveedor.getId());
         //Añadimos los pedidos a su JTable
         for(int i=0;i<array_pedidos.size();i++){
             modelo.addRow(new Object[]{array_pedidos.get(i).getId(), 
@@ -91,7 +91,7 @@ public class ControladorProveedor implements ActionListener{
         }
         //Actualizamos el array de productos solo los que no esten borrados.
         array_productos=null;
-        array_productos=conector.getProductos(usuario.getId());
+        array_productos=conector.getProductos(proveedor.getId());
         //Añadimos los productos al JTable
         for(int i=0;i<array_productos.size();i++){
             //Variable que indica el estado del producto
@@ -99,12 +99,12 @@ public class ControladorProveedor implements ActionListener{
             if(array_productos.get(i).getEstado() == 1) aceptado="Aceptado";
             else{aceptado="Pendiente";}
             modelo.addRow(new Object[]{array_productos.get(i).getNombre(), 
-                array_productos.get(i).getPrecio(usuario.getRoll())+"€",aceptado});
+                array_productos.get(i).getPrecio(proveedor.getRoll())+"€",aceptado});
         }
     }
     
-    /*Metodo en el que entra cuando se interacciona con 
-      algun elemento del interfaz que se encuentra en el ActionListener*/
+    /*Metodo al que accedemos cuando activamos algun elemento 
+      de la interfaz que se encuentra en el ActionListener*/
     @Override
     public void actionPerformed(ActionEvent e) {
         //Objeto que recoje el elemento del interfaz que hemos activado
@@ -114,7 +114,7 @@ public class ControladorProveedor implements ActionListener{
             //Creamos Interfaz de cambiar contraseña
             ICambio interfaz_cambio=new ICambio();
             //Creamos controlador de cambiar contraseña y le pasamos usuario, interfaz y conector.
-            ControladorCambio controlador_cambio=new ControladorCambio(usuario,interfaz_cambio,conector);
+            ControladorCambio controlador_cambio=new ControladorCambio(proveedor,interfaz_cambio,conector);
         }
         
         //Si activamos actualizar
@@ -146,7 +146,7 @@ public class ControladorProveedor implements ActionListener{
                 //Comprobamos si ya existe
                 try {
                     //Le ponemos nombre al producto que es el nombre del proveedor seguido de-"Nombre del proveedor"
-                    producto=conector.getProducto(interfaz_proveedor.nombre.getText()+"-"+usuario.getNombre());
+                    producto=conector.getProducto(interfaz_proveedor.nombre.getText()+"-"+proveedor.getNombre());
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -162,8 +162,8 @@ public class ControladorProveedor implements ActionListener{
                         //Convertimos el strign a float
                         float prize = Float.parseFloat(interfaz_proveedor.precio.getText());
                         //Le damos valores al producto
-                        producto.setNombre(interfaz_proveedor.nombre.getText()+"-"+usuario.getNombre());
-                        producto.setUsuario(usuario);
+                        producto.setNombre(interfaz_proveedor.nombre.getText()+"-"+proveedor.getNombre());
+                        producto.setUsuario(proveedor);
                         producto.setDescripcion(interfaz_proveedor.descripcion.getText());
                         //Redondeamos por defecto a 2 decimales
                         prize=prize*100;
@@ -231,5 +231,3 @@ public class ControladorProveedor implements ActionListener{
         }
     }
 }
-    
-

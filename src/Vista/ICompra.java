@@ -41,6 +41,7 @@ public class ICompra extends javax.swing.JFrame {
         precio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Vista/iconos/icon.png")));
         setMinimumSize(new java.awt.Dimension(908, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(908, 600));
