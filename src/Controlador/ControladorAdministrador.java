@@ -55,7 +55,7 @@ private ArrayList<Producto> productos;
             if(productos.get(i).getEstado() == 0) aceptado="Pendiente";
             if(productos.get(i).getEstado() == 1) aceptado="Aceptado";
             if(productos.get(i).getEstado() == 2) aceptado="Borrado";
-        modelo.addRow(new Object[]{productos.get(i).getNombre(),productos.get(i).getUser().getNombre(),aceptado,String.valueOf(productos.get(i).getCantidad())});
+        modelo.addRow(new Object[]{productos.get(i).getNombre(),productos.get(i).getUsuario().getNombre(),aceptado,String.valueOf(productos.get(i).getCantidad())});
         }    
     }
 
@@ -86,7 +86,7 @@ private ArrayList<Producto> productos;
                 prize=prize*100;
                 prize=(int) prize;
                 prize=prize/100;
-                p.setPrecioc(prize);
+                p.setPrecio_cliente(prize);
                 p.setEstado(1);
                 Cn.updateProducto_estado(p);
                 }
@@ -118,7 +118,7 @@ private ArrayList<Producto> productos;
                 prize=prize*100;
                 prize=(int) prize;
                 prize=prize/100;
-                p.setPrecioc(prize);
+                p.setPrecio_cliente(prize);
                 Cn.updateProducto_estado(p);
                 }
                 } catch (SQLException ex) {

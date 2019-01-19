@@ -44,6 +44,7 @@ public class ICliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(908, 600));
+        setResizable(false);
         setSize(new java.awt.Dimension(908, 600));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));

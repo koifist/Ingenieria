@@ -41,7 +41,7 @@ private ICambio cambio;
                     idpast=user.getId();
                     user.setPass(cambio.pass_nueva.getText());
                 try {
-                    Cn.updateUser(user);
+                    Cn.updateUsuario(user);
                     cambio.dispose();
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorCambio.class.getName()).log(Level.SEVERE, null, ex);

@@ -91,7 +91,7 @@ private ArrayList<Usuario> proveedores;
         pedidos=null;
         pedidos=Cn.getPedidos("1");
         for(int i=0;i<pedidos.size();i++){
-        modelo.addRow(new Object[]{pedidos.get(i).getId(), pedidos.get(i).getUser().getNombre(), pedidos.get(i).getPrecio()+"€", (pedidos.get(i).getFecha()).substring(0,10)});
+        modelo.addRow(new Object[]{pedidos.get(i).getId(), pedidos.get(i).getUsuario().getNombre(), pedidos.get(i).getPrecio()+"€", (pedidos.get(i).getFecha()).substring(0,10)});
         }
     }
     public void actionPerformed(ActionEvent e) {

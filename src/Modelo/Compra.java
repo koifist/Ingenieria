@@ -3,7 +3,7 @@ package Modelo;
 public class Compra {
 
     public int id;
-    public Usuario user;
+    public Usuario usuario;
     public float precio;
     public String descripcion;
     public String fecha;
@@ -24,12 +24,12 @@ public class Compra {
         this.id = id;
     }
 
-    public Usuario getUser() {
-        return user;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUser(Usuario user) {
-        this.user = user;
+    public void setUsuario(Usuario user) {
+        this.usuario = user;
     }
 
     public float getPrecio() {

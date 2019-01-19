@@ -102,7 +102,7 @@ public class ControladorCompra implements ActionListener{
                 }
         if(fuente==com.confirmar_compra && com.carro.getRowCount()>0){
             Compra compra=new Compra();
-            compra.setUser(user);
+            compra.setUsuario(user);
             compra.setPrecio(preciofin);
             String descripcion="";
             for(int i=0;i<com.carro.getRowCount();i++){
@@ -120,13 +120,15 @@ public class ControladorCompra implements ActionListener{
                     }
             compra.setDescripcion(descripcion);
             try {
-                Cn.setCompra(compra);
+                Cn.createCompra(compra);
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorCompra.class.getName()).log(Level.SEVERE, null, ex);
             }
+            JOptionPane.showMessageDialog(null,"Compra realizada con exito.");
             cli.dispose();
             ICliente cliente2=new ICliente();
             try {
+
                 ControladorCliente control2=new ControladorCliente(cliente2,Cn,user);
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorCompra.class.getName()).log(Level.SEVERE, null, ex);

@@ -14,7 +14,7 @@ public class Conector {
     }
     
     //Devuelve de la base de datos un usuario pasandole su Id
-    public Usuario getUser(String Id_user) throws SQLException{
+    public Usuario getUsuario(String Id_user) throws SQLException{
 
             Usuario usuario = new Usuario();
             //2. Crear objeto statement
@@ -56,7 +56,7 @@ public class Conector {
     }
     
     //Crea un nuevo usuario
-    public void setUser(Usuario usuario) throws SQLException{
+    public void createUsuario(Usuario usuario) throws SQLException{
 
             //2. Crear objeto statement
             PreparedStatement statement = connection.prepareStatement("INSERT INTO "
@@ -72,7 +72,7 @@ public class Conector {
     }
     
     //Actualiza la contraseña de un usuario.
-    public void updateUser(Usuario usuario) throws SQLException{
+    public void updateUsuario(Usuario usuario) throws SQLException{
 
             //2. Crear objeto statement
             PreparedStatement statement = connection.prepareStatement("UPDATE usuarios"+
@@ -95,7 +95,7 @@ public class Conector {
             while(resultSet.next()) {
                 Compra compra=new Compra();
                 compra.setId(resultSet.getInt(1));
-                compra.setUser(getUser(resultSet.getString(2)));
+                compra.setUsuario(getUsuario(resultSet.getString(2)));
                 compra.setPrecio(resultSet.getFloat(3));
                 compra.setFecha(resultSet.getString(4).substring(0, 10));
                 compra.setDescripcion(resultSet.getString(5));
@@ -106,12 +106,12 @@ public class Conector {
     }
     
     //Crea una nueva compra
-    public void setCompra(Compra compra) throws SQLException{
+    public void createCompra(Compra compra) throws SQLException{
 
             //2. Crear objeto statement
             PreparedStatement statement = connection.prepareStatement("INSERT INTO "
             + "compras (usuario, precio, descripcion) VALUES (?, ?, ?)");
-            statement.setNString(1, compra.getUser().getId());
+            statement.setNString(1, compra.getUsuario().getId());
             statement.setFloat(2, compra.getPrecio());
             statement.setNString(3, compra.getDescripcion());
             statement.executeUpdate();
@@ -138,7 +138,7 @@ public class Conector {
             while(resultSet.next()) {
             Pedido pedido=new Pedido();
             pedido.setId(resultSet.getInt(1));
-            pedido.setUser(getUser(resultSet.getString(2)));
+            pedido.setUsuario(getUsuario(resultSet.getString(2)));
             pedido.setPrecio(resultSet.getFloat(3));
             pedido.setDescripcion(resultSet.getString(4));
             pedido.setFecha(resultSet.getString(5));
@@ -158,7 +158,7 @@ public class Conector {
             Pedido pedido=new Pedido();
             if(resultSet.next()) {
             pedido.setId(resultSet.getInt(1));
-            pedido.setUser(getUser(resultSet.getString(2)));
+            pedido.setUsuario(getUsuario(resultSet.getString(2)));
             pedido.setPrecio(resultSet.getFloat(3));
             pedido.setDescripcion(resultSet.getString(4));
             pedido.setFecha(resultSet.getString(5));
@@ -168,12 +168,12 @@ public class Conector {
     }
     
     //Crea un pedido
-    public void setPedido(Pedido pedido) throws SQLException {
+    public void createPedido(Pedido pedido) throws SQLException {
 
             //2. Crear objeto statement
             PreparedStatement statement = connection.prepareStatement("INSERT INTO "
             + "pedidos (usuario, precio, descripcion) VALUES (?, ?, ?)");
-            statement.setNString(1, pedido.getUser().getId());
+            statement.setNString(1, pedido.getUsuario().getId());
             statement.setFloat(2, pedido.getPrecio());
             statement.setNString(3, pedido.getDescripcion());
             statement.executeUpdate();
@@ -205,9 +205,9 @@ public class Conector {
                 producto.setId(resultSet.getInt(1));
                 producto.setNombre(resultSet.getString(2));
                 producto.setDescripcion(resultSet.getString(3));
-                producto.setUser(getUser(resultSet.getString(4)));
-                producto.setPrecioc(resultSet.getFloat(5));
-                producto.setPreciop(resultSet.getFloat(6));
+                producto.setUsuario(getUsuario(resultSet.getString(4)));
+                producto.setPrecio_cliente(resultSet.getFloat(5));
+                producto.setPrecio_proveedor(resultSet.getFloat(6));
                 producto.setCantidad(resultSet.getInt(7));
                 producto.setEstado(resultSet.getInt(8));
             }
@@ -235,9 +235,9 @@ public class Conector {
                 producto.setId(resultSet.getInt(1));
                 producto.setNombre(resultSet.getString(2));
                 producto.setDescripcion(resultSet.getString(3));
-                producto.setUser(getUser(resultSet.getString(4)));
-                producto.setPrecioc(resultSet.getFloat(5));
-                producto.setPreciop(resultSet.getFloat(6));
+                producto.setUsuario(getUsuario(resultSet.getString(4)));
+                producto.setPrecio_cliente(resultSet.getFloat(5));
+                producto.setPrecio_proveedor(resultSet.getFloat(6));
                 producto.setCantidad(resultSet.getInt(7));
                 producto.setEstado(resultSet.getInt(8));
                 if(producto.getEstado()==2 && producto.getCantidad()==0){
@@ -252,14 +252,14 @@ public class Conector {
     }
     
     //Crea un producto
-    public void setProducto(Producto producto) throws SQLException {
+    public void createProducto(Producto producto) throws SQLException {
 
             //2. Crear objeto statement
             PreparedStatement statement = connection.prepareStatement("INSERT INTO "
             + "productos (nombre, descripcion, usuario, preciop) VALUES (?, ?, ?, ?)");
             statement.setNString(1, producto.getNombre());
             statement.setNString(2, producto.getDescripcion());
-            statement.setNString(3, producto.getUser().getId());
+            statement.setNString(3, producto.getUsuario().getId());
             statement.setFloat(4, producto.getPrecio(2));
             statement.executeUpdate();
             statement.close();    

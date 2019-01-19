@@ -1,114 +1,149 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 import Modelo.*;
 import Vista.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javax.swing.*;
-import javax.swing.JSpinner.DefaultEditor;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.*;
 
-/**
- *
- * @author Fernando
- */
 public class ControladorPedido implements ActionListener{
-    private ICompra com;
-    private Conector Cn;
-    private Usuario user;
-    private Usuario prov;
-    private float preciofin=0;
+    //Interfaz de compra
+    private ICompra interfaz_compra;
+    //Conector de la base de datos
+    private Conector conector;
+    //Empleado que esta usando el software
+    private Usuario empleado;
+    //Proveedor al que van a hacer el pedido
+    private Usuario proveedor;
+    //Precio final del pedido
+    private float precio_final=0;
+    //Array de productos disponibles del proveedor
     ArrayList<Producto> productos;
-    public ControladorPedido(Usuario user, Conector Cn, ICompra com, Usuario prov) throws SQLException{
-        this.user=user;
-        this.Cn=Cn;
-        this.com=com;
-        this.prov=prov;
-            com.id_label.setText(user.getNombre());
-            inicializarProductos();
-            com.setLocationRelativeTo(null);
-            com.setVisible(true);
-            com.case_productos.setSelectedItem(null);
-            com.confirmar_compra.addActionListener(this);
-            com.case_productos.addActionListener(this);
-            com.añadir_carro.addActionListener(this);
-            DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-            centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-            com.carro.setDefaultRenderer(String.class, centerRenderer);
+    
+    //Constructor
+    public ControladorPedido(Usuario usuario, Conector conector, ICompra i_compra, Usuario proveedor) throws SQLException{
+        //Inicializamos las variables globales
+        this.empleado=usuario;
+        this.conector=conector;
+        this.interfaz_compra=i_compra;
+        this.proveedor=proveedor;
+        //Colocamos el nombre del empleado en el interfaz
+        interfaz_compra.id_label.setText(empleado.getNombre());
+        //inicializamos los productos en el case de eleccion
+        inicializarProductos();
+        //Colocamos la interfaz en el centro de la pantalla
+        interfaz_compra.setLocationRelativeTo(null);
+        //Hacemos la interfaz visible
+        interfaz_compra.setVisible(true);
+        //Ponemos el case en blanco
+        interfaz_compra.case_productos.setSelectedItem(null);
+        //Añadimos los elementos del interfaz al ActionListener
+        interfaz_compra.confirmar_compra.addActionListener(this);
+        interfaz_compra.case_productos.addActionListener(this);
+        interfaz_compra.añadir_carro.addActionListener(this);
+        //Alineamos los elementos del JTable al centro
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        interfaz_compra.carro.setDefaultRenderer(String.class, centerRenderer);
     }
+    
+    //Inicializa los productos del case 
     public void inicializarProductos() throws SQLException{
-        productos=Cn.getProductos(prov.getId());
+        productos=conector.getProductos(proveedor.getId());
         for(int i=0;i<productos.size();i++){
-            com.case_productos.addItem(productos.get(i).getNombre());
+            interfaz_compra.case_productos.addItem(productos.get(i).getNombre());
         }
     }
-    private Producto getPro(String nombre){
+    
+    //Devuelve un producto del array en funcion de su nombre
+    private Producto devolver_producto(String nombre){
         for(int i=0;i<productos.size();i++){
             if(productos.get(i).getNombre().equals(nombre)) return productos.get(i);
         }
         return null;
     }
+    
+    //Motodo al que accedemos cuando activamos algun elemento del interfaz que este en el ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Objeto que referencia al elemento activado
         Object fuente=e.getSource();
-        DefaultTableModel model = (DefaultTableModel) com.carro.getModel();
-        if(fuente==com.case_productos){
-            com.numero_productos.setValue(0);
-            String seleccion=(String)com.case_productos.getSelectedItem();
-            com.precio.setText(getPro(seleccion).getPrecio(user.getRoll())+"€");
+        //TableModel del carro
+        DefaultTableModel model = (DefaultTableModel) interfaz_compra.carro.getModel();
+        
+        //Si seleccionamos un elemento del case de productos
+        if(fuente==interfaz_compra.case_productos){
+            //Ponemos el spinner a 0
+            interfaz_compra.numero_productos.setValue(0);
+            //Indicamos el precio por unidad del articulo seleccionado
+            String seleccion=(String)interfaz_compra.case_productos.getSelectedItem();
+            interfaz_compra.precio.setText(devolver_producto(seleccion).getPrecio(empleado.getRoll())+"€");
         }
-        if(fuente==com.añadir_carro){
-            preciofin=0;
-            if((int)com.numero_productos.getValue()>0){
+        
+        //Si activas añadir al carro
+        if(fuente==interfaz_compra.añadir_carro){
+            //Ponemos precio_final a 0
+            precio_final=0;
+            //Si se ha introducido algun producto
+            if((int)interfaz_compra.numero_productos.getValue()>0){
+                //Obtenemos el producto en funcion del nombre que hay en el case
                 Producto p=new Producto();
-                p=getPro((String)com.case_productos.getSelectedItem());
-                for(int i=0;i<com.carro.getRowCount();i++){
-                    if(((String)model.getValueAt(i, 0)).equals((String)com.case_productos.getSelectedItem())){
+                p=devolver_producto((String)interfaz_compra.case_productos.getSelectedItem());
+                //borramos la fila si ya existe con el producto que queremos añadir para actualizar la cantidad
+                for(int i=0;i<interfaz_compra.carro.getRowCount();i++){
+                    if(((String)model.getValueAt(i, 0)).equals((String)interfaz_compra.case_productos.getSelectedItem())){
                         model.removeRow(i);
                     }
                 }
-                float precio=(int)com.numero_productos.getValue()*p.getPrecio(user.getRoll());
+                //Redondeamos por defecto el precio final del producto
+                float precio=(int)interfaz_compra.numero_productos.getValue()*p.getPrecio(empleado.getRoll());
                 precio = Math.round(precio*100);
                 precio=precio/100;
-                model.addRow(new Object[]{p.getNombre(), (int)com.numero_productos.getValue(),  Float.toString(precio)+"€"});
+                //añadimos una fila
+                model.addRow(new Object[]{p.getNombre(), (int)interfaz_compra.numero_productos.getValue(),  Float.toString(precio)+"€"});
+                //Si ponemos la cantidad a 0 simplemente borra el producto del JTable
                 }else{
-                for(int i=0;i<com.carro.getRowCount();i++){
-                    if(((String)model.getValueAt(i, 0)).equals((String)com.case_productos.getSelectedItem())){
-                        model.removeRow(i);
+                    for(int i=0;i<interfaz_compra.carro.getRowCount();i++){
+                        if(((String)model.getValueAt(i, 0)).equals((String)interfaz_compra.case_productos.getSelectedItem())){
+                            model.removeRow(i);
+                        }
                     }
                 }
-                }               
-                for(int i=0;i<com.carro.getRowCount();i++){
+                //Actualizamos el precio final
+                for(int i=0;i<interfaz_compra.carro.getRowCount();i++){
                     String precio=(String)model.getValueAt(i, 2);
                     precio = precio.substring(0, precio.length()-1);
-                    preciofin = preciofin+Float.parseFloat(precio);
+                    precio_final = precio_final+Float.parseFloat(precio);
                     }
-                com.precio_final.setText(Float.toString(preciofin)+"€");
+                //Mostramos el precio final en la interfaz
+                interfaz_compra.precio_final.setText(Float.toString(precio_final)+"€");
                 }
-        if(fuente==com.confirmar_compra && com.carro.getRowCount()>0){
+        
+        //Si activamos confirmar compra
+        if(fuente==interfaz_compra.confirmar_compra && interfaz_compra.carro.getRowCount()>0){
+            //Creamos un nuevo pedido
             Pedido pedido=new Pedido();
-            pedido.setUser(prov);
-            pedido.setPrecio(preciofin);
+            pedido.setUsuario(proveedor);
+            pedido.setPrecio(precio_final);
             String descripcion="";
-            for(int i=0;i<com.carro.getRowCount();i++){
+            //añadimos a la descripcion los productos del pedido
+            for(int i=0;i<interfaz_compra.carro.getRowCount();i++){
                     descripcion=descripcion+Integer.toString((int)model.getValueAt(i, 1))+"   "+((String)model.getValueAt(i, 0))+"\n";
                     }
             pedido.setDescripcion(descripcion);
             try {
-                Cn.setPedido(pedido);
+                //Añadimos el pedido a la base de datos
+                conector.createPedido(pedido);
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorCompra.class.getName()).log(Level.SEVERE, null, ex);
             }
-            com.dispose();
-        }
+            //Mostramos que todo se ha realizado correctamente
+            JOptionPane.showMessageDialog(null,"Pedido realizado con exito.");
+            //Cerramos la vetana
+            interfaz_compra.dispose();
         }
     }
+}
 

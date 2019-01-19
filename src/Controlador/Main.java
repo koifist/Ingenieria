@@ -1,22 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
 import Modelo.Conector;
-import Vista.Inicio;
+import Vista.ILogin;
 import java.sql.SQLException;
 
-/**
- *
- * @author Fernando
- */
+//Main
 public class Main {
     public static void main(String[] args) throws SQLException{
-        Inicio In= new Inicio();
-        Conector Cn= new Conector();
-        ControladorInicio control=new ControladorInicio(In,Cn);
+        
+        //Creamos interfaz del Login
+        ILogin login= new ILogin();
+        //Creamos el conector a la base de datos 
+        Conector conector= new Conector();
+        //Creamos el controlador y le pasamos el login y el conector
+        ControladorLogin controlador_login=new ControladorLogin(login,conector);
     }
 }

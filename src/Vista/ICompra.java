@@ -40,8 +40,9 @@ public class ICompra extends javax.swing.JFrame {
         precio_final = new javax.swing.JLabel();
         precio = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(908, 600));
+        setResizable(false);
         setSize(new java.awt.Dimension(908, 600));
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
