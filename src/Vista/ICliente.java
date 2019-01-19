@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author Ferni

@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import java.awt.Toolkit;
 import javax.swing.table.DefaultTableModel;
 
 /**
