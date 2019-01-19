@@ -8,7 +8,7 @@ public class Producto {
         public Usuario user;
 	public float precioc;
 	public float preciop;
-	public int cantidad=0;
+	public int cantidad;
         public int estado;
     
         public int getEstado() {

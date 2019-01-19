@@ -30,7 +30,7 @@ public class ControladorCliente implements ActionListener{
         this.cli=cli;
         this.Cn=Cn;
         this.user=user;
-        iniciarCompras();
+        actualizarCompras();
         cli.setVisible(true);
         cli.setLocationRelativeTo(null);
         cli.idLabel.setText(user.getNombre());
@@ -41,17 +41,21 @@ public class ControladorCliente implements ActionListener{
         cli.lista_compras.setDefaultRenderer(String.class, centerRenderer);
         ListSelectionModel modelo = cli.lista_compras.getSelectionModel();
         modelo.addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent e) {
-            cli.descripcion.setText(compras.get(cli.lista_compras.getSelectedRow()).getDescripcion());        
+            public void valueChanged(ListSelectionEvent e) {    
+                    cli.descripcion.setText(compras.get(compras.size()-cli.lista_compras.getSelectedRow()-1).getDescripcion());
             }
         });
         }
-        public void iniciarCompras() throws SQLException{
-        compras = new ArrayList<Compra>();
+        public void actualizarCompras() throws SQLException{
+        DefaultTableModel modelo = (DefaultTableModel) cli.lista_compras.getModel();
+        int a =modelo.getRowCount()-1;
+        for(int i=a; i>=0; i--){
+        modelo.removeRow(i);
+        }
+        compras=null;
         compras=Cn.getCompras(user.getId());
-        DefaultTableModel model = (DefaultTableModel) cli.lista_compras.getModel();
         for(int i=compras.size()-1;i>=0;i--){
-        model.addRow(new Object[]{compras.get(i).getId(), compras.get(i).getFecha(), compras.get(i).getPrecio()+"€"});
+        modelo.addRow(new Object[]{compras.get(i).getId(), compras.get(i).getFecha(), compras.get(i).getPrecio()+"€"});
         }
         }
 

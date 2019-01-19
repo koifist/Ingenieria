@@ -34,8 +34,7 @@ private boolean correcto;
         reg.name_error.setVisible(false);
         reg.DNI_error.setVisible(false);
         reg.address_error.setVisible(false);
-
-        
+        if(roll==2) reg.DNI_label.setText("CIF");     
     }
 
 @Override
@@ -63,10 +62,10 @@ private boolean correcto;
            correcto=false;
        }
        if(reg.DNI.getText().isEmpty() || reg.DNI.getText().length()!=9){
-           if(roll==1 || roll==3){
-           JOptionPane.showMessageDialog(null,"Introduzca el DNI con el formato 25535449K");
-           }else{
+           if(roll==2){
            JOptionPane.showMessageDialog(null,"Introduzca el CIF con el formato V8242066B");
+           }else{
+           JOptionPane.showMessageDialog(null,"Introduzca el DNI con el formato 25535449K");
     
            }
            correcto=false;

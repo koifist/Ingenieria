@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
 import Modelo.*;
@@ -49,18 +44,6 @@ private boolean add;
             }
         });
                 }
-    public Pedido getPedido(int id){
-        for(int i=0;i<pedidos.size();i++){
-            if(pedidos.get(i).getId()==id) return pedidos.get(i);
-        }
-        return null;
-    }
-    public Producto getPedido(String nombre){
-        for(int i=0;i<productos.size();i++){
-            if(productos.get(i).getNombre().equals(nombre)) return productos.get(i);
-        }
-        return null;
-    }
     public void actualizar() throws SQLException{
         DefaultTableModel modelo = (DefaultTableModel) pro.lista_pedidos.getModel();
         int a =modelo.getRowCount()-1;
@@ -86,6 +69,19 @@ private boolean add;
         modelo.addRow(new Object[]{productos.get(i).getNombre(), productos.get(i).getPrecio(user.getRoll())+"€",aceptado});
         }
     }
+    public Pedido getPedido(int id){
+        for(int i=0;i<pedidos.size();i++){
+            if(pedidos.get(i).getId()==id) return pedidos.get(i);
+        }
+        return null;
+    }
+    public Producto getPedido(String nombre){
+        for(int i=0;i<productos.size();i++){
+            if(productos.get(i).getNombre().equals(nombre)) return productos.get(i);
+        }
+        return null;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         Object fuente=e.getSource();
@@ -123,13 +119,16 @@ private boolean add;
                     p.setNombre(pro.nombre.getText()+"-"+user.getNombre());
                     p.setUser(user);
                     p.setDescripcion(pro.descripcion.getText());
+                    prize=prize*100;
+                    prize=(int) prize;
+                    prize=prize/100;
                     p.setPreciop(prize);
                     Cn.setProducto(p);
                     actualizar();          
                     pro.nombre.setText("");
                     pro.descripcion.setText("");     
                     pro.precio.setText("");
-                } catch (SQLException ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null,"Introduzca un precio valido.");
                 }
@@ -140,9 +139,9 @@ private boolean add;
                 Producto p=new Producto();               
                 p=Cn.getProducto((String) pro.lista_productos.getValueAt(pro.lista_productos.getSelectedRow(), 0));
                 p.setEstado(2);
-                Cn.updateProductoe(p);
+                Cn.updateProducto_estado(p);
                 actualizar();                       
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(ControladorProveedor.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null,"Error al borrar el producto.");
             }
@@ -154,7 +153,7 @@ private boolean add;
                 ped.setEstado(1);
                 Cn.updatePedido(ped);
                 actualizar();
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null,"Error al borrar el producto.");
             }
         }

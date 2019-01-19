@@ -39,7 +39,7 @@ public class ControladorInicio implements ActionListener{
                         if(user.getRoll()==0){
                             Inicio.setVisible(false);
                             IAdministrador admin=new IAdministrador();
-                            ControladorAdmin control=new ControladorAdmin(admin,Cn);
+                            ControladorAdministrador control=new ControladorAdministrador(admin,Cn);
                             
                         }
                         if(user.getRoll()==1){

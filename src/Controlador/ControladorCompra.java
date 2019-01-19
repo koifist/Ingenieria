@@ -25,14 +25,14 @@ public class ControladorCompra implements ActionListener{
     private ICompra com;
     private Conector Cn;
     private Usuario user;
-    private ICliente control;
+    private ICliente cli;
     private float preciofin=0;
     ArrayList<Producto> productos;
     public ControladorCompra(Usuario user, Conector Cn, ICompra com,ICliente cli) throws SQLException{
         this.user=user;
         this.Cn=Cn;
         this.com=com;
-        this.control=cli;
+        this.cli=cli;
             com.id_label.setText(user.getId());
             inicializarProductos();
             com.setLocationRelativeTo(null);
@@ -82,8 +82,9 @@ public class ControladorCompra implements ActionListener{
                     }
                 }
                 float precio=(int)com.numero_productos.getValue()*p.getPrecio(user.getRoll());
-                precio = Math.round(precio*100);
-                precio=precio/100;
+                precio = precio*100;
+                precio=(int) precio;
+                precio=precio/100;            
                 model.addRow(new Object[]{p.getNombre(), (int)com.numero_productos.getValue(),  Float.toString(precio)+"€"});
                 }else{
                 for(int i=0;i<com.carro.getRowCount();i++){
@@ -111,7 +112,7 @@ public class ControladorCompra implements ActionListener{
                     canti=canti-(int)model.getValueAt(i, 1);
                     p.setCantidad(canti);
                 try {
-                    Cn.updateProductoc(p);
+                    Cn.updateProducto_cantidad(p);
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorCompra.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -123,20 +124,11 @@ public class ControladorCompra implements ActionListener{
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorCompra.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-        ArrayList<Compra>compras = new ArrayList<Compra>();
+            cli.dispose();
+            ICliente cliente2=new ICliente();
             try {
-                compras=Cn.getCompras(user.getId());
-            
-        DefaultTableModel modelo = (DefaultTableModel) control.lista_compras.getModel();
-        int a =modelo.getRowCount()-1;
-        for(int i=a; i>=0; i--){
-        modelo.removeRow(i);
-        }
-        for(int i=compras.size()-1;i>=0;i--){
-        modelo.addRow(new Object[]{compras.get(i).getId(), compras.get(i).getFecha(), compras.get(i).getPrecio()+"€"});
-        }
-        } catch (SQLException ex) {
+                ControladorCliente control2=new ControladorCliente(cliente2,Cn,user);
+            } catch (SQLException ex) {
                 Logger.getLogger(ControladorCompra.class.getName()).log(Level.SEVERE, null, ex);
             }
             com.dispose();

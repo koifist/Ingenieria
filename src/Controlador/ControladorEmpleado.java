@@ -75,7 +75,7 @@ private ArrayList<Usuario> proveedores;
         return null;
     }
     public void proveedores() throws SQLException{
-        proveedores=Cn.getUsers("1");
+        proveedores=Cn.getProveedores();
         for(int i=0;i<proveedores.size();i++){
             emp.case_prov.addItem(proveedores.get(i).getNombre());
         }
@@ -122,14 +122,12 @@ private ArrayList<Usuario> proveedores;
             String descPedido=p.getDescripcion();
             String []add=descPedido.split("\n");
             for(int i=0;i<add.length;i++){
-                System.out.println(add[i]);
                 String []canti=add[i].split("\t");
-                System.out.println(canti[0]+" "+canti[1]);
                 Producto prod=new Producto();
                 try {
                     prod=Cn.getProducto(canti[1]);
                     prod.setCantidad(prod.getCantidad()+Integer.parseInt(canti[0]));
-                    Cn.updateProductoc(prod);
+                    Cn.updateProducto_cantidad(prod);
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorEmpleado.class.getName()).log(Level.SEVERE, null, ex);
                 }
