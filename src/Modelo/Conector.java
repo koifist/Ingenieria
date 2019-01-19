@@ -194,10 +194,11 @@ public class Conector {
     
     //Devuelve un producto pasandole su nombre
     public Producto getProducto (String nombre)throws SQLException{
-        
+            nombre=nombre.replaceAll("\n", "");
+            nombre=nombre.replaceAll("\r", ""); 
             Producto producto =new Producto();
             //2. Crear objeto statement
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM productos WHERE nombre=?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM productos WHERE nombre = ?");
             statement.setNString(1,nombre);
             ResultSet resultSet=statement.executeQuery();
             if(resultSet.next()) {
@@ -211,6 +212,7 @@ public class Conector {
                 producto.setEstado(resultSet.getInt(8));
             }
             statement.close();
+                                System.out.println(producto.getCantidad() + producto.getNombre());
             return producto;
     }
     

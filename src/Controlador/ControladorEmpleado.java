@@ -98,6 +98,7 @@ private ArrayList<Usuario> proveedores;
         Object fuente=e.getSource();
         if(fuente==emp.actualizar){
             try {
+                emp.descripcion.setText("");
                 actualizarPedidos();
             } catch (SQLException ex) {
                 Logger.getLogger(ControladorEmpleado.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,13 +117,14 @@ private ArrayList<Usuario> proveedores;
             ControladorCambio control=new ControladorCambio(user,cam,Cn);
         }
         if(fuente==emp.confirmar_pedido){
+            emp.descripcion.setText("");
             Pedido p=null;
             p=getPedido((int)emp.lista_pedidos.getValueAt(emp.lista_pedidos.getSelectedRow(),0));
             p.setEstado(2);
             String descPedido=p.getDescripcion();
             String []add=descPedido.split("\n");
             for(int i=0;i<add.length;i++){
-                String []canti=add[i].split("\t");
+                String []canti=add[i].split("   ");
                 Producto prod=new Producto();
                 try {
                     prod=Cn.getProducto(canti[1]);

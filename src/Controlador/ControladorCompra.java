@@ -33,7 +33,7 @@ public class ControladorCompra implements ActionListener{
         this.Cn=Cn;
         this.com=com;
         this.cli=cli;
-            com.id_label.setText(user.getId());
+            com.id_label.setText(user.getNombre());
             inicializarProductos();
             com.setLocationRelativeTo(null);
             com.setVisible(true);
@@ -116,7 +116,7 @@ public class ControladorCompra implements ActionListener{
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorCompra.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                    descripcion=descripcion+Integer.toString((int)model.getValueAt(i, 1))+"\t"+((String)model.getValueAt(i, 0))+"\n";
+                    descripcion=descripcion+Integer.toString((int)model.getValueAt(i, 1))+"   "+((String)model.getValueAt(i, 0))+"\n";
                     }
             compra.setDescripcion(descripcion);
             try {

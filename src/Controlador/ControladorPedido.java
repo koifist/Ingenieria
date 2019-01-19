@@ -32,7 +32,7 @@ public class ControladorPedido implements ActionListener{
         this.Cn=Cn;
         this.com=com;
         this.prov=prov;
-            com.id_label.setText(user.getId());
+            com.id_label.setText(user.getNombre());
             inicializarProductos();
             com.setLocationRelativeTo(null);
             com.setVisible(true);
@@ -99,7 +99,7 @@ public class ControladorPedido implements ActionListener{
             pedido.setPrecio(preciofin);
             String descripcion="";
             for(int i=0;i<com.carro.getRowCount();i++){
-                    descripcion=descripcion+Integer.toString((int)model.getValueAt(i, 1))+"\t"+((String)model.getValueAt(i, 0))+"\n";
+                    descripcion=descripcion+Integer.toString((int)model.getValueAt(i, 1))+"   "+((String)model.getValueAt(i, 0))+"\n";
                     }
             pedido.setDescripcion(descripcion);
             try {
